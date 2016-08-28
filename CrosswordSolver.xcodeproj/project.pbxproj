@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3A1D73928500954321 /* Foundation.framework */; };
+		E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3C1D73928500954321 /* CoreGraphics.framework */; };
+		E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3E1D73928500954321 /* UIKit.framework */; };
+		E5BF4D451D73928500954321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5BF4D431D73928500954321 /* InfoPlist.strings */; };
+		E5BF4D471D73928500954321 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BF4D461D73928500954321 /* main.m */; };
+		E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BF4D4A1D73928500954321 /* AppDelegate.m */; };
+		E5BF4D4D1D73928500954321 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BF4D4C1D73928500954321 /* Images.xcassets */; };
+		E5BF4D541D73928500954321 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D531D73928500954321 /* XCTest.framework */; };
+		E5BF4D551D73928500954321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3A1D73928500954321 /* Foundation.framework */; };
+		E5BF4D561D73928500954321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3E1D73928500954321 /* UIKit.framework */; };
+		E5BF4D5E1D73928500954321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5BF4D5C1D73928500954321 /* InfoPlist.strings */; };
+		E5BF4D601D73928500954321 /* CrosswordSolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BF4D5F1D73928500954321 /* CrosswordSolverTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5BF4D571D73928500954321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5BF4D2F1D73928500954321 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5BF4D361D73928500954321;
+			remoteInfo = CrosswordSolver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5BF4D371D73928500954321 /* CrosswordSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrosswordSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5BF4D3A1D73928500954321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E5BF4D3C1D73928500954321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E5BF4D3E1D73928500954321 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E5BF4D421D73928500954321 /* CrosswordSolver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrosswordSolver-Info.plist"; sourceTree = "<group>"; };
+		E5BF4D441D73928500954321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E5BF4D461D73928500954321 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5BF4D481D73928500954321 /* CrosswordSolver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrosswordSolver-Prefix.pch"; sourceTree = "<group>"; };
+		E5BF4D491D73928500954321 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5BF4D4A1D73928500954321 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5BF4D4C1D73928500954321 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E5BF4D521D73928500954321 /* CrosswordSolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrosswordSolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5BF4D531D73928500954321 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E5BF4D5B1D73928500954321 /* CrosswordSolverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrosswordSolverTests-Info.plist"; sourceTree = "<group>"; };
+		E5BF4D5D1D73928500954321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E5BF4D5F1D73928500954321 /* CrosswordSolverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrosswordSolverTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5BF4D341D73928500954321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */,
+				E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */,
+				E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5BF4D4F1D73928500954321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D541D73928500954321 /* XCTest.framework in Frameworks */,
+				E5BF4D561D73928500954321 /* UIKit.framework in Frameworks */,
+				E5BF4D551D73928500954321 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5BF4D2E1D73928500954321 = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D401D73928500954321 /* CrosswordSolver */,
+				E5BF4D591D73928500954321 /* CrosswordSolverTests */,
+				E5BF4D391D73928500954321 /* Frameworks */,
+				E5BF4D381D73928500954321 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5BF4D381D73928500954321 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D371D73928500954321 /* CrosswordSolver.app */,
+				E5BF4D521D73928500954321 /* CrosswordSolverTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5BF4D391D73928500954321 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D3A1D73928500954321 /* Foundation.framework */,
+				E5BF4D3C1D73928500954321 /* CoreGraphics.framework */,
+				E5BF4D3E1D73928500954321 /* UIKit.framework */,
+				E5BF4D531D73928500954321 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5BF4D401D73928500954321 /* CrosswordSolver */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D491D73928500954321 /* AppDelegate.h */,
+				E5BF4D4A1D73928500954321 /* AppDelegate.m */,
+				E5BF4D4C1D73928500954321 /* Images.xcassets */,
+				E5BF4D411D73928500954321 /* Supporting Files */,
+			);
+			path = CrosswordSolver;
+			sourceTree = "<group>";
+		};
+		E5BF4D411D73928500954321 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D421D73928500954321 /* CrosswordSolver-Info.plist */,
+				E5BF4D431D73928500954321 /* InfoPlist.strings */,
+				E5BF4D461D73928500954321 /* main.m */,
+				E5BF4D481D73928500954321 /* CrosswordSolver-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5BF4D591D73928500954321 /* CrosswordSolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D5F1D73928500954321 /* CrosswordSolverTests.m */,
+				E5BF4D5A1D73928500954321 /* Supporting Files */,
+			);
+			path = CrosswordSolverTests;
+			sourceTree = "<group>";
+		};
+		E5BF4D5A1D73928500954321 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF4D5B1D73928500954321 /* CrosswordSolverTests-Info.plist */,
+				E5BF4D5C1D73928500954321 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5BF4D361D73928500954321 /* CrosswordSolver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5BF4D631D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolver" */;
+			buildPhases = (
+				E5BF4D331D73928500954321 /* Sources */,
+				E5BF4D341D73928500954321 /* Frameworks */,
+				E5BF4D351D73928500954321 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrosswordSolver;
+			productName = CrosswordSolver;
+			productReference = E5BF4D371D73928500954321 /* CrosswordSolver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5BF4D511D73928500954321 /* CrosswordSolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5BF4D661D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolverTests" */;
+			buildPhases = (
+				E5BF4D4E1D73928500954321 /* Sources */,
+				E5BF4D4F1D73928500954321 /* Frameworks */,
+				E5BF4D501D73928500954321 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5BF4D581D73928500954321 /* PBXTargetDependency */,
+			);
+			name = CrosswordSolverTests;
+			productName = CrosswordSolverTests;
+			productReference = E5BF4D521D73928500954321 /* CrosswordSolverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5BF4D2F1D73928500954321 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___PrabhatKiranBharathidhasan___";
+				TargetAttributes = {
+					E5BF4D511D73928500954321 = {
+						TestTargetID = E5BF4D361D73928500954321;
+					};
+				};
+			};
+			buildConfigurationList = E5BF4D321D73928500954321 /* Build configuration list for PBXProject "CrosswordSolver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5BF4D2E1D73928500954321;
+			productRefGroup = E5BF4D381D73928500954321 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5BF4D361D73928500954321 /* CrosswordSolver */,
+				E5BF4D511D73928500954321 /* CrosswordSolverTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5BF4D351D73928500954321 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D451D73928500954321 /* InfoPlist.strings in Resources */,
+				E5BF4D4D1D73928500954321 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5BF4D501D73928500954321 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D5E1D73928500954321 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5BF4D331D73928500954321 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */,
+				E5BF4D471D73928500954321 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5BF4D4E1D73928500954321 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF4D601D73928500954321 /* CrosswordSolverTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5BF4D581D73928500954321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5BF4D361D73928500954321 /* CrosswordSolver */;
+			targetProxy = E5BF4D571D73928500954321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5BF4D431D73928500954321 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5BF4D441D73928500954321 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E5BF4D5C1D73928500954321 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5BF4D5D1D73928500954321 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5BF4D611D73928500954321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E5BF4D621D73928500954321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5BF4D641D73928500954321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
+				INFOPLIST_FILE = "CrosswordSolver/CrosswordSolver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E5BF4D651D73928500954321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
+				INFOPLIST_FILE = "CrosswordSolver/CrosswordSolver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E5BF4D671D73928500954321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CrosswordSolver.app/CrosswordSolver";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CrosswordSolverTests/CrosswordSolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E5BF4D681D73928500954321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CrosswordSolver.app/CrosswordSolver";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
+				INFOPLIST_FILE = "CrosswordSolverTests/CrosswordSolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5BF4D321D73928500954321 /* Build configuration list for PBXProject "CrosswordSolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5BF4D611D73928500954321 /* Debug */,
+				E5BF4D621D73928500954321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5BF4D631D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5BF4D641D73928500954321 /* Debug */,
+				E5BF4D651D73928500954321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E5BF4D661D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5BF4D671D73928500954321 /* Debug */,
+				E5BF4D681D73928500954321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5BF4D2F1D73928500954321 /* Project object */;
+}
