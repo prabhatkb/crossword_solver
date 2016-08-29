@@ -19,6 +19,7 @@
 		E5BF4D561D73928500954321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3E1D73928500954321 /* UIKit.framework */; };
 		E5BF4D5E1D73928500954321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5BF4D5C1D73928500954321 /* InfoPlist.strings */; };
 		E5BF4D601D73928500954321 /* CrosswordSolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BF4D5F1D73928500954321 /* CrosswordSolverTests.m */; };
+		E5E8D0881D73D119004B6199 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E8D0871D73D119004B6199 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		E5BF4D5B1D73928500954321 /* CrosswordSolverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrosswordSolverTests-Info.plist"; sourceTree = "<group>"; };
 		E5BF4D5D1D73928500954321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E5BF4D5F1D73928500954321 /* CrosswordSolverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrosswordSolverTests.m; sourceTree = "<group>"; };
+		E5E8D0871D73D119004B6199 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E8D0881D73D119004B6199 /* opencv2.framework in Frameworks */,
 				E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */,
 				E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */,
 				E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */,
@@ -96,6 +99,7 @@
 		E5BF4D391D73928500954321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5E8D0871D73D119004B6199 /* opencv2.framework */,
 				E5BF4D3A1D73928500954321 /* Foundation.framework */,
 				E5BF4D3C1D73928500954321 /* CoreGraphics.framework */,
 				E5BF4D3E1D73928500954321 /* UIKit.framework */,
@@ -357,6 +361,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
 				INFOPLIST_FILE = "CrosswordSolver/CrosswordSolver-Info.plist";
@@ -370,6 +378,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrosswordSolver/CrosswordSolver-Prefix.pch";
 				INFOPLIST_FILE = "CrosswordSolver/CrosswordSolver-Info.plist";
@@ -437,6 +449,7 @@
 				E5BF4D651D73928500954321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5BF4D661D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolverTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +458,7 @@
 				E5BF4D681D73928500954321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
