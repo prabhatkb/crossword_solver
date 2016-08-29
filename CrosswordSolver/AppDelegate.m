@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GridProcessor.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
+    [gridProcessor processPuzzle];
+    UIImage *processedImage = [gridProcessor processedImage];
+    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:processedImage];
+
+    UIViewController *rootViewController = [[UIViewController alloc] init];
+    [rootViewController.view addSubview:processedImageView];
+    
+    self.window.rootViewController = rootViewController;
+    
     return YES;
 }
 
