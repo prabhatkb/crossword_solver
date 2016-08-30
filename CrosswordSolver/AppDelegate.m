@@ -18,15 +18,24 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    UIViewController *rootViewController = [[UIViewController alloc] init];
+    UIImage *initialImage = [UIImage imageNamed:@"crossword_grid.png"];
+    UIImageView *initialImageView = [[UIImageView alloc] initWithImage:initialImage];
+    [rootViewController.view addSubview:initialImageView];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    self.window.rootViewController = navigationController;
+    
     GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
     [gridProcessor processPuzzle];
     UIImage *processedImage = [gridProcessor processedImage];
     UIImageView *processedImageView = [[UIImageView alloc] initWithImage:processedImage];
 
-    UIViewController *rootViewController = [[UIViewController alloc] init];
-    [rootViewController.view addSubview:processedImageView];
+    UIViewController *newViewController = [[UIViewController alloc] init];
+    [newViewController.view addSubview:processedImageView];
     
-    self.window.rootViewController = rootViewController;
+    [navigationController pushViewController:newViewController animated:YES];
     
     return YES;
 }

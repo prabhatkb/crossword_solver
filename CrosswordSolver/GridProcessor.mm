@@ -12,8 +12,7 @@ using namespace cv;
 
 @interface GridProcessor ()
 
-@property (nonatomic) Mat sudoku;
-@property (nonatomic) Mat kernel;
+@property (nonatomic) Mat cdst;
 
 @end
 
@@ -30,21 +29,108 @@ using namespace cv;
 }
 
 - (void)processPuzzle {
-//    self.sudoku = [self cvMatFromUIImage:[UIImage imageNamed:_puzzleImageName]];
-    self.sudoku = imread("/Users/prabhatkiran/Desktop/CrosswordSolver/crossword_grid.png", 0);
+    [self findAllLines];
+}
+
+- (void)findAllLines {
+    Mat gray = imread("/Users/prabhatkiran/Desktop/CrosswordSolver/crossword_grid.png", 0);
+    if(gray.empty()) {
+        NSLog(@"The image could not be loaded into memory");
+    }
     
-    Mat outerBox = Mat(self.sudoku.size(), CV_8UC1);
-    GaussianBlur(self.sudoku, self.sudoku, cv::Size(11,11), 0);
+    Mat dst, tempDst;
+    Canny(gray, dst, 50, 200, 3);
+    cvtColor(dst, tempDst, CV_GRAY2BGR);
     
-    adaptiveThreshold(self.sudoku, outerBox, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 5, 2);
+    int screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    int screenHeight = [[UIScreen mainScreen] bounds].size.height;
     
-    bitwise_not(outerBox, outerBox);
+    vector<Vec4i> lines;
+    vector<Vec4i> filteredLines;
+    // Since screenWidth in points is used as pixels
+    HoughLinesP(dst, lines, 1, CV_PI/180, 50, 50, screenWidth/2 );
     
-    self.kernel = (Mat_<uchar>(3,3) << 0,1,0,1,1,1,0,1,0); dilate(outerBox, outerBox, self.kernel);
+    for( size_t i = 0; i < lines.size(); i++ ) {
+        int slope = [self slopeOfLine:lines[i]];
+        int length = [self lengthOfLine:lines[i]];
+        if ((slope == 0 && length > screenWidth) ||
+            (slope == INT_MAX && length > screenHeight)) {
+            filteredLines.push_back(lines[i]);
+        }
+    }
+
+    for( size_t i = 0; i < filteredLines.size(); i++ )
+    {
+        Vec4i l = filteredLines[i];
+        line( tempDst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
+    }
+
+    self.cdst = tempDst;
+}
+
+- (int)slopeOfLine:(Vec4i) line {
+    int x1 = line[0];
+    int y1 = line[1];
+    int x2 = line[2];
+    int y2 = line[3];
+    if (y2 == y1) return 0;
+    if (x2 == x1) return INT_MAX;
+    return (y2-y1)/(x2-x1);
+}
+
+- (int)lengthOfLine:(Vec4i) line {
+    int x1 = line[0];
+    int y1 = line[1];
+    int x2 = line[2];
+    int y2 = line[3];
+    
+    int y = (y2-y1) * (y2-y1);
+    int x = (x2-x1) * (x2-x1);
+    return sqrt(x + y);
+}
+
++ (CGFloat)pixelToPoints:(CGFloat)px {
+    CGFloat pointsPerInch = 72.0; // see: http://en.wikipedia.org/wiki/Point%5Fsize#Current%5FDTP%5Fpoint%5Fsystem
+    CGFloat scale = 1; // We dont't use [[UIScreen mainScreen] scale] as we don't want the native pixel, we want pixels for UIFont - it does the retina scaling for us
+    float pixelPerInch; // aka dpi
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        pixelPerInch = 132 * scale;
+    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        pixelPerInch = 163 * scale;
+    } else {
+        pixelPerInch = 160 * scale;
+    }
+    CGFloat result = px * pointsPerInch / pixelPerInch;
+    return result;
 }
 
 - (UIImage *)processedImage {
-    return [self UIImageFromCVMat:self.sudoku];
+    getchar();
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = CGSizeMake(screenRect.size.width, screenRect.size.height);
+    return [self image:[self UIImageFromCVMat:self.cdst] scaledToSize:screenSize];
+}
+
+- (UIImage *)image:(UIImage*)originalImage scaledToSize:(CGSize)size
+{
+    //avoid redundant drawing
+    if (CGSizeEqualToSize(originalImage.size, size))
+    {
+        return originalImage;
+    }
+    
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    //draw
+    [originalImage drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+    
+    //capture resultant image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //return image
+    return image;
 }
 
 - (Mat)cvMatFromUIImage:(UIImage *)image
