@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
+		E5793D051D76A16B00123B4C /* CrosswordPuzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */; };
 		E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3A1D73928500954321 /* Foundation.framework */; };
 		E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3C1D73928500954321 /* CoreGraphics.framework */; };
 		E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3E1D73928500954321 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
+		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
+		E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrosswordPuzzle.m; sourceTree = "<group>"; };
 		E5BF4D371D73928500954321 /* CrosswordSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrosswordSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BF4D3A1D73928500954321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5BF4D3C1D73928500954321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +127,8 @@
 				E5BF4D4A1D73928500954321 /* AppDelegate.m */,
 				E5E8D0891D73D156004B6199 /* GridProcessor.h */,
 				E5E8D08A1D73D156004B6199 /* GridProcessor.mm */,
+				E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */,
+				E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */,
 				E5BF4D4C1D73928500954321 /* Images.xcassets */,
 				E5BF4D411D73928500954321 /* Supporting Files */,
 			);
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5793D051D76A16B00123B4C /* CrosswordPuzzle.m in Sources */,
 				E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */,
 				E5E8D08B1D73D156004B6199 /* GridProcessor.mm in Sources */,
 				E5BF4D471D73928500954321 /* main.m in Sources */,

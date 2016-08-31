@@ -24,6 +24,7 @@
     [rootViewController.view addSubview:initialImageView];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    navigationController.navigationBarHidden = YES;
     
     self.window.rootViewController = navigationController;
     

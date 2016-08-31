@@ -43,18 +43,29 @@ using namespace cv;
     cvtColor(dst, tempDst, CV_GRAY2BGR);
     
     int screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    int screenHeight = [[UIScreen mainScreen] bounds].size.height;
+//    int screenHeight = [[UIScreen mainScreen] bounds].size.height;
     
     vector<Vec4i> lines;
     vector<Vec4i> filteredLines;
     // Since screenWidth in points is used as pixels
     HoughLinesP(dst, lines, 1, CV_PI/180, 50, 50, screenWidth/2 );
     
+    int maxLength = 0;
+    for( size_t i = 0; i < lines.size(); i++ ) {
+        int length = [self lengthOfLine:lines[i]];
+        NSLog(@"Line Length is %d", length);
+        if (length > maxLength) {
+            maxLength = length;
+        }
+    }
+    
+    NSLog(@"Max Length is %d", maxLength);
+    
     for( size_t i = 0; i < lines.size(); i++ ) {
         int slope = [self slopeOfLine:lines[i]];
         int length = [self lengthOfLine:lines[i]];
-        if ((slope == 0 && length > screenWidth) ||
-            (slope == INT_MAX && length > screenHeight)) {
+        if ((slope == 0 && length > maxLength/2) ||
+            (slope == INT_MAX && length > (3*maxLength/4))) {
             filteredLines.push_back(lines[i]);
         }
     }
