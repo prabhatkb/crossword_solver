@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CrosswordPuzzle;
 
 @interface GridProcessor : NSObject
 
 - (GridProcessor *)initWithImageNamed:(NSString *)imageName;
-- (void)processPuzzle;
+- (CrosswordPuzzle *)processPuzzle;
 
 - (UIImage *)processedImage;
 

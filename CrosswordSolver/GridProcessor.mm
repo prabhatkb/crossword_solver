@@ -7,8 +7,11 @@
 //
 
 #import "GridProcessor.h"
+#import "CrosswordPuzzle.h"
 
 using namespace cv;
+
+#define THICKNESS_THRESHOLD 5
 
 @interface GridProcessor ()
 
@@ -28,16 +31,12 @@ using namespace cv;
     return self;
 }
 
-- (void)processPuzzle {
-    [self findAllLines];
-}
-
-- (void)findAllLines {
+- (CrosswordPuzzle *)processPuzzle {
     Mat gray = imread("/Users/prabhatkiran/Desktop/CrosswordSolver/crossword_grid.png", 0);
     if(gray.empty()) {
         NSLog(@"The image could not be loaded into memory");
     }
-    
+
     Mat dst, tempDst;
     Canny(gray, dst, 50, 200, 3);
     cvtColor(dst, tempDst, CV_GRAY2BGR);
@@ -48,7 +47,7 @@ using namespace cv;
     vector<Vec4i> lines;
     vector<Vec4i> filteredLines;
     // Since screenWidth in points is used as pixels
-    HoughLinesP(dst, lines, 1, CV_PI/180, 50, 50, screenWidth/2 );
+    HoughLinesP(dst, lines, 1, CV_PI/2, 50, 50, screenWidth/2 );
     
     int maxLength = 0;
     for( size_t i = 0; i < lines.size(); i++ ) {
@@ -65,18 +64,78 @@ using namespace cv;
         int slope = [self slopeOfLine:lines[i]];
         int length = [self lengthOfLine:lines[i]];
         if ((slope == 0 && length > maxLength/2) ||
-            (slope == INT_MAX && length > (3*maxLength/4))) {
+            (slope == INT_MAX && length > (maxLength - 5))) {
             filteredLines.push_back(lines[i]);
         }
     }
 
-    for( size_t i = 0; i < filteredLines.size(); i++ )
-    {
-        Vec4i l = filteredLines[i];
+    NSLog(@"Original Number of lines %lu", lines.size());
+    NSLog(@"Number of lines %lu", filteredLines.size());
+    
+    // Remove the thick ones.
+    vector<Vec4i> filterThickLines;
+    for( size_t i = 0; i < filteredLines.size(); i++ ) {
+        Vec4i currentLine = filteredLines[i];
+        BOOL shouldAddLine = YES;
+        for( size_t j = 0; j < filterThickLines.size(); j++ ) {
+            // If none of the filtered lines are at close proximity then add it.
+            if ([self slopeOfLine:currentLine] == [self slopeOfLine:filterThickLines[j]]) {
+                if ([self slopeOfLine:currentLine] == 0) {
+                    // Get the difference between their y-co-ordinates
+                    int y1 = currentLine[1];
+                    int y2 = filterThickLines[j][1];
+                    int thickness = y2 - y1;
+                    if (abs(thickness) < THICKNESS_THRESHOLD) {
+                        shouldAddLine = NO;
+                    }
+                } else if ([self slopeOfLine:currentLine] == INT_MAX) {
+                    // Get the difference between their x-co-ordinates
+                    int x1 = currentLine[0];
+                    int x2 = filterThickLines[j][0];
+                    int thickness = x2 - x1;
+                    if (abs(thickness) < THICKNESS_THRESHOLD) {
+                        shouldAddLine = NO;
+                    }
+                }
+            }
+        }
+        if (shouldAddLine) {
+            filterThickLines.push_back(currentLine);
+        }
+    }
+    
+    NSLog(@"Number of lines after thickness filter %lu", filterThickLines.size());
+    
+    for( size_t i = 0; i < filterThickLines.size(); i++ ) {
+        Vec4i l = filterThickLines[i];
+//        NSLog(@"Line from (%d, %d) to (%d, %d)", l[i][0], l[i][1], l[i][2], l[i][3]);
         line( tempDst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
     }
+    
+    int gridLength = INT_MAX;
+    for( size_t i = 0; i < filterThickLines.size(); i++ ) {
+        for( size_t j = i+1; j < filterThickLines.size(); j++ ) {
+            Vec4i line1 = filterThickLines[i];
+            Vec4i line2 = filterThickLines[j];
+            if ([self slopeOfLine:line1] == 0 &&
+                [self slopeOfLine:line2] == 0) {
+                int y1 = line1[1];
+                int y2 = line2[1];
+                int calculatedGridLength = abs(y2 - y1);
+                if (calculatedGridLength< gridLength) {
+                    gridLength = calculatedGridLength;
+                }
+            }
+        }
+    }
+    
+    int rows = maxLength/gridLength;
+    int cols = maxLength/gridLength;
+    
+    NSLog(@"Rows: %d, Cols: %d", rows, cols);
 
     self.cdst = tempDst;
+    return [[CrosswordPuzzle alloc] initWithRows:rows columns:cols];
 }
 
 - (int)slopeOfLine:(Vec4i) line {
