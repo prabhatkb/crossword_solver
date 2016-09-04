@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "GridProcessor.h"
+#import "DigitExtractor.h"
+#import <TesseractOCR/TesseractOCR.h>
 
 @implementation AppDelegate
 
@@ -28,11 +30,30 @@
     
     self.window.rootViewController = navigationController;
     
-    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
-    [gridProcessor processPuzzle];
-    UIImage *processedImage = [gridProcessor processedImage];
-    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:processedImage];
-
+//    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
+//    [gridProcessor processPuzzle];
+//    UIImage *processedImage = [gridProcessor processedImage];
+//    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:processedImage];
+//
+//    UIViewController *newViewController = [[UIViewController alloc] init];
+//    [newViewController.view addSubview:processedImageView];
+    
+//    [navigationController pushViewController:newViewController animated:YES];
+    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
+    G8Tesseract *tesseract = [digitExtractor testExtractingImage];
+    
+    // You could retrieve more information about recognized text with that methods:
+    NSArray *characterBoxes = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelSymbol];
+    NSArray *paragraphs = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
+    NSArray *characterChoices = tesseract.characterChoices;
+    UIImage *imageWithBlocks = [tesseract imageWithBlocks:characterBoxes drawText:YES thresholded:NO];
+    
+    NSLog(@"Character Boxes : %@", characterBoxes);
+    NSLog(@"Paragraphs : %@", paragraphs);
+    NSLog(@"Character Choices : %@", characterChoices);
+    
+    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:imageWithBlocks];
+    
     UIViewController *newViewController = [[UIViewController alloc] init];
     [newViewController.view addSubview:processedImageView];
     

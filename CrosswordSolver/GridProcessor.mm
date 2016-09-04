@@ -112,6 +112,7 @@ using namespace cv;
         line( tempDst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
     }
     
+    // Calculate grid length.
     int gridLength = INT_MAX;
     for( size_t i = 0; i < filterThickLines.size(); i++ ) {
         for( size_t j = i+1; j < filterThickLines.size(); j++ ) {
@@ -133,6 +134,31 @@ using namespace cv;
     int cols = maxLength/gridLength;
     
     NSLog(@"Rows: %d, Cols: %d", rows, cols);
+
+    int xmin = INT_MAX/4, ymin = INT_MAX/4, xmax = 0, ymax = 0;
+    for( size_t i = 0; i < filterThickLines.size(); i++ ) {
+        Vec4i line = filterThickLines[i];
+        int x1 = line[0];
+        int y1 = line[1];
+        int x2 = line[2];
+        int y2 = line[3];
+        if (x1 + y1 < xmin + ymin) {
+            xmin = x1;
+            ymin = y1;
+        }
+        if (x2 + y2 < xmin + ymin) {
+            xmin = x2;
+            ymin = y2;
+        }
+        if (x1 + y1 > xmax + ymax) {
+            xmax = x1;
+            ymax = y1;
+        }
+        if (x2 + y2 > xmax + ymax) {
+            xmax = x2;
+            ymax = y2;
+        }
+    }
 
     self.cdst = tempDst;
     return [[CrosswordPuzzle alloc] initWithRows:rows columns:cols];

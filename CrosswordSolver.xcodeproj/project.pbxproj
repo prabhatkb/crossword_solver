@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07042001E0D1A31761702B1C /* libPods-CrosswordSolverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5D610D54899BC0A35303B3 /* libPods-CrosswordSolverTests.a */; };
+		A0C104370BE6DC2D649CF7F9 /* libPods-CrosswordSolver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D337DC9F6CB41780AE8CF46 /* libPods-CrosswordSolver.a */; };
+		E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E5793F861D7AA3B200123B4C /* tessdata */; };
+		E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */; };
+		E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */; };
+		E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077F1D7CB4FC00DA0E8E /* Clue.m */; };
+		E55707821D7CB57100DA0E8E /* complete_crossword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707811D7CB57100DA0E8E /* complete_crossword.jpg */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */; };
+		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
+		E5A25EA11D7AA62900BEED96 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A25EA01D7AA62800BEED96 /* CoreVideo.framework */; };
+		E5A25EA31D7AA63200BEED96 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A25EA21D7AA63200BEED96 /* AssetsLibrary.framework */; };
+		E5A25EA51D7AA63F00BEED96 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A25EA41D7AA63F00BEED96 /* CoreMedia.framework */; };
+		E5A25EA71D7AA64D00BEED96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A25EA61D7AA64D00BEED96 /* AVFoundation.framework */; };
 		E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3A1D73928500954321 /* Foundation.framework */; };
 		E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3C1D73928500954321 /* CoreGraphics.framework */; };
 		E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF4D3E1D73928500954321 /* UIKit.framework */; };
@@ -37,9 +49,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BCCF7691DC718A9E3A36FB5 /* Pods-CrosswordSolver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrosswordSolver.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrosswordSolver/Pods-CrosswordSolver.release.xcconfig"; sourceTree = "<group>"; };
+		28BD855AEDAE417D0FC40542 /* Pods-CrosswordSolver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrosswordSolver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrosswordSolver/Pods-CrosswordSolver.debug.xcconfig"; sourceTree = "<group>"; };
+		69FFAA56E94739C9F14238CE /* Pods-CrosswordSolverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrosswordSolverTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrosswordSolverTests/Pods-CrosswordSolverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D337DC9F6CB41780AE8CF46 /* libPods-CrosswordSolver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrosswordSolver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5D610D54899BC0A35303B3 /* libPods-CrosswordSolverTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrosswordSolverTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA84F7AD7737B18308E428B /* Pods-CrosswordSolverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrosswordSolverTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrosswordSolverTests/Pods-CrosswordSolverTests.release.xcconfig"; sourceTree = "<group>"; };
+		E55707781D7B3DAA00DA0E8E /* DigitExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitExtractor.h; sourceTree = "<group>"; };
+		E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitExtractor.m; sourceTree = "<group>"; };
+		E557077B1D7CB4CB00DA0E8E /* ClueExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueExtractor.h; sourceTree = "<group>"; };
+		E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueExtractor.m; sourceTree = "<group>"; };
+		E557077E1D7CB4FC00DA0E8E /* Clue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clue.h; sourceTree = "<group>"; };
+		E557077F1D7CB4FC00DA0E8E /* Clue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clue.m; sourceTree = "<group>"; };
+		E55707811D7CB57100DA0E8E /* complete_crossword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = complete_crossword.jpg; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrosswordPuzzle.m; sourceTree = "<group>"; };
+		E5793F861D7AA3B200123B4C /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../tessdata; sourceTree = "<group>"; };
+		E59DE6C01D7AC35E00D06F81 /* 61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 61.png; sourceTree = SOURCE_ROOT; };
+		E5A25EA01D7AA62800BEED96 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E5A25EA21D7AA63200BEED96 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E5A25EA41D7AA63F00BEED96 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E5A25EA61D7AA64D00BEED96 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E5BF4D371D73928500954321 /* CrosswordSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrosswordSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BF4D3A1D73928500954321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5BF4D3C1D73928500954321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,11 +98,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A25EA71D7AA64D00BEED96 /* AVFoundation.framework in Frameworks */,
+				E5A25EA51D7AA63F00BEED96 /* CoreMedia.framework in Frameworks */,
+				E5A25EA31D7AA63200BEED96 /* AssetsLibrary.framework in Frameworks */,
+				E5A25EA11D7AA62900BEED96 /* CoreVideo.framework in Frameworks */,
 				E5E8D08D1D73D75B004B6199 /* libjpeg.a in Frameworks */,
 				E5E8D0881D73D119004B6199 /* opencv2.framework in Frameworks */,
 				E5BF4D3D1D73928500954321 /* CoreGraphics.framework in Frameworks */,
 				E5BF4D3F1D73928500954321 /* UIKit.framework in Frameworks */,
 				E5BF4D3B1D73928500954321 /* Foundation.framework in Frameworks */,
+				A0C104370BE6DC2D649CF7F9 /* libPods-CrosswordSolver.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,19 +118,33 @@
 				E5BF4D541D73928500954321 /* XCTest.framework in Frameworks */,
 				E5BF4D561D73928500954321 /* UIKit.framework in Frameworks */,
 				E5BF4D551D73928500954321 /* Foundation.framework in Frameworks */,
+				07042001E0D1A31761702B1C /* libPods-CrosswordSolverTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5EBE19074921CB49C2D21D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28BD855AEDAE417D0FC40542 /* Pods-CrosswordSolver.debug.xcconfig */,
+				0BCCF7691DC718A9E3A36FB5 /* Pods-CrosswordSolver.release.xcconfig */,
+				69FFAA56E94739C9F14238CE /* Pods-CrosswordSolverTests.debug.xcconfig */,
+				AFA84F7AD7737B18308E428B /* Pods-CrosswordSolverTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E5BF4D2E1D73928500954321 = {
 			isa = PBXGroup;
 			children = (
+				E5793F861D7AA3B200123B4C /* tessdata */,
 				E5BF4D401D73928500954321 /* CrosswordSolver */,
 				E5BF4D591D73928500954321 /* CrosswordSolverTests */,
 				E5BF4D391D73928500954321 /* Frameworks */,
 				E5BF4D381D73928500954321 /* Products */,
+				A5EBE19074921CB49C2D21D0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,12 +160,18 @@
 		E5BF4D391D73928500954321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5A25EA61D7AA64D00BEED96 /* AVFoundation.framework */,
+				E5A25EA41D7AA63F00BEED96 /* CoreMedia.framework */,
+				E5A25EA21D7AA63200BEED96 /* AssetsLibrary.framework */,
+				E5A25EA01D7AA62800BEED96 /* CoreVideo.framework */,
 				E5E8D08C1D73D75B004B6199 /* libjpeg.a */,
 				E5E8D0871D73D119004B6199 /* opencv2.framework */,
 				E5BF4D3A1D73928500954321 /* Foundation.framework */,
 				E5BF4D3C1D73928500954321 /* CoreGraphics.framework */,
 				E5BF4D3E1D73928500954321 /* UIKit.framework */,
 				E5BF4D531D73928500954321 /* XCTest.framework */,
+				7D337DC9F6CB41780AE8CF46 /* libPods-CrosswordSolver.a */,
+				AC5D610D54899BC0A35303B3 /* libPods-CrosswordSolverTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,6 +183,12 @@
 				E5BF4D4A1D73928500954321 /* AppDelegate.m */,
 				E5E8D0891D73D156004B6199 /* GridProcessor.h */,
 				E5E8D08A1D73D156004B6199 /* GridProcessor.mm */,
+				E55707781D7B3DAA00DA0E8E /* DigitExtractor.h */,
+				E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */,
+				E557077B1D7CB4CB00DA0E8E /* ClueExtractor.h */,
+				E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */,
+				E557077E1D7CB4FC00DA0E8E /* Clue.h */,
+				E557077F1D7CB4FC00DA0E8E /* Clue.m */,
 				E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */,
 				E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */,
 				E5BF4D4C1D73928500954321 /* Images.xcassets */,
@@ -138,6 +200,8 @@
 		E5BF4D411D73928500954321 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E55707811D7CB57100DA0E8E /* complete_crossword.jpg */,
+				E59DE6C01D7AC35E00D06F81 /* 61.png */,
 				E576CB7C1D73FDF400D0886A /* crossword_grid.png */,
 				E5BF4D421D73928500954321 /* CrosswordSolver-Info.plist */,
 				E5BF4D431D73928500954321 /* InfoPlist.strings */,
@@ -172,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BF4D631D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolver" */;
 			buildPhases = (
+				A39504B19F3D3DB4FBAAA011 /* [CP] Check Pods Manifest.lock */,
 				E5BF4D331D73928500954321 /* Sources */,
 				E5BF4D341D73928500954321 /* Frameworks */,
 				E5BF4D351D73928500954321 /* Resources */,
+				B257412AADFF7CA3168FA802 /* [CP] Embed Pods Frameworks */,
+				075CD03E30F9EEB2CD4A629B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,9 +256,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BF4D661D73928500954321 /* Build configuration list for PBXNativeTarget "CrosswordSolverTests" */;
 			buildPhases = (
+				DDF3A60EA77ECFE07CA787EC /* [CP] Check Pods Manifest.lock */,
 				E5BF4D4E1D73928500954321 /* Sources */,
 				E5BF4D4F1D73928500954321 /* Frameworks */,
 				E5BF4D501D73928500954321 /* Resources */,
+				4BF953697C99021F4BD1D343 /* [CP] Embed Pods Frameworks */,
+				1DC55A780A993EFF16CD956F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,6 +310,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */,
+				E55707821D7CB57100DA0E8E /* complete_crossword.jpg in Resources */,
+				E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */,
 				E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */,
 				E5BF4D451D73928500954321 /* InfoPlist.strings in Resources */,
 				E5BF4D4D1D73928500954321 /* Images.xcassets in Resources */,
@@ -256,15 +329,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		075CD03E30F9EEB2CD4A629B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrosswordSolver/Pods-CrosswordSolver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DC55A780A993EFF16CD956F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrosswordSolverTests/Pods-CrosswordSolverTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BF953697C99021F4BD1D343 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrosswordSolverTests/Pods-CrosswordSolverTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A39504B19F3D3DB4FBAAA011 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B257412AADFF7CA3168FA802 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrosswordSolver/Pods-CrosswordSolver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF3A60EA77ECFE07CA787EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5BF4D331D73928500954321 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */,
 				E5793D051D76A16B00123B4C /* CrosswordPuzzle.m in Sources */,
+				E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */,
 				E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */,
 				E5E8D08B1D73D156004B6199 /* GridProcessor.mm in Sources */,
 				E5BF4D471D73928500954321 /* main.m in Sources */,
+				E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +547,7 @@
 		};
 		E5BF4D641D73928500954321 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28BD855AEDAE417D0FC40542 /* Pods-CrosswordSolver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -399,6 +569,7 @@
 		};
 		E5BF4D651D73928500954321 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BCCF7691DC718A9E3A36FB5 /* Pods-CrosswordSolver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -420,6 +591,7 @@
 		};
 		E5BF4D671D73928500954321 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69FFAA56E94739C9F14238CE /* Pods-CrosswordSolverTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CrosswordSolver.app/CrosswordSolver";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -442,6 +614,7 @@
 		};
 		E5BF4D681D73928500954321 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA84F7AD7737B18308E428B /* Pods-CrosswordSolverTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CrosswordSolver.app/CrosswordSolver";
 				FRAMEWORK_SEARCH_PATHS = (
