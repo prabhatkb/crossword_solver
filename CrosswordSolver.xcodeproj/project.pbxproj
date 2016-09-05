@@ -15,6 +15,7 @@
 		E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077F1D7CB4FC00DA0E8E /* Clue.m */; };
 		E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */; };
 		E557078A1D7CCFBB00DA0E8E /* crossword_across_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */; };
+		E557078C1D7D489000DA0E8E /* 53.png in Resources */ = {isa = PBXBuildFile; fileRef = E557078B1D7D489000DA0E8E /* 53.png */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */; };
 		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
@@ -64,6 +65,7 @@
 		E557077F1D7CB4FC00DA0E8E /* Clue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clue.m; sourceTree = "<group>"; };
 		E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = complete_crossword.jpg; sourceTree = "<group>"; };
 		E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crossword_across_1.jpg; sourceTree = "<group>"; };
+		E557078B1D7D489000DA0E8E /* 53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 53.png; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CrosswordPuzzle.mm; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		E5BF4D411D73928500954321 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E557078B1D7D489000DA0E8E /* 53.png */,
 				E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */,
 				E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */,
 				E59DE6C01D7AC35E00D06F81 /* 61.png */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */,
+				E557078C1D7D489000DA0E8E /* 53.png in Resources */,
 				E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */,
 				E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */,
 				E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */,

@@ -36,18 +36,21 @@
     
     GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:imageFilename];
     CrosswordPuzzle *puzzle = [gridProcessor processPuzzle];
-//    UIImage *processedImage = [gridProcessor processedImage];
-//    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:processedImage];
-//
-//    UIViewController *newViewController = [[UIViewController alloc] init];
-//    [newViewController.view addSubview:processedImageView];
-    
-//    [navigationController pushViewController:newViewController animated:YES];
     DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
     [digitExtractor populateCrossWord:puzzle fromImage:imageFilename];
     
+//    NSArray *characterBoxes = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelSymbol];
+//    NSLog(@"%@", characterBoxes);
+//    NSArray *paragraphs = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
+//    NSLog(@"%@", paragraphs);
+//    NSArray *characterChoices = tesseract.characterChoices;
+//    NSLog(@"%@", characterChoices);
+//    UIImage *imageWithBlocks = [tesseract imageWithBlocks:characterBoxes drawText:YES thresholded:NO];
+    
     [puzzle printCrossword];
     
+//    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:imageWithBlocks];
+//    
 //    UIViewController *newViewController = [[UIViewController alloc] init];
 //    [newViewController.view addSubview:processedImageView];
 //    
