@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <TesseractOCR/TesseractOCR.h>
 
-@interface ClueExtractor : NSObject
+@interface ClueExtractor : NSObject <G8TesseractDelegate>
+
+- (NSArray *)processClues;
 
 @end

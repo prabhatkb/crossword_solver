@@ -15,7 +15,8 @@ typedef enum : NSUInteger {
 
 @interface Clue : NSObject
 
-@property (nonatomic) NSString *clue;
+@property (nonatomic) int clueIndex;
+@property (nonatomic) NSString *clueString;
 @property (nonatomic) ClueDirection clueDirection;
 @property (nonatomic) int numOfCharacters;
 

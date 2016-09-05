@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <TesseractOCR/TesseractOCR.h>
 
-@interface DigitExtractor : NSObject  <G8TesseractDelegate>
+@interface DigitExtractor : NSObject <G8TesseractDelegate>
 
 - (G8Tesseract *) testExtractingImage;
 

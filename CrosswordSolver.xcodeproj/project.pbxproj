@@ -13,7 +13,8 @@
 		E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */; };
 		E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */; };
 		E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077F1D7CB4FC00DA0E8E /* Clue.m */; };
-		E55707821D7CB57100DA0E8E /* complete_crossword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707811D7CB57100DA0E8E /* complete_crossword.jpg */; };
+		E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */; };
+		E557078A1D7CCFBB00DA0E8E /* crossword_across_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */; };
 		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
@@ -61,7 +62,8 @@
 		E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueExtractor.m; sourceTree = "<group>"; };
 		E557077E1D7CB4FC00DA0E8E /* Clue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clue.h; sourceTree = "<group>"; };
 		E557077F1D7CB4FC00DA0E8E /* Clue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clue.m; sourceTree = "<group>"; };
-		E55707811D7CB57100DA0E8E /* complete_crossword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = complete_crossword.jpg; sourceTree = "<group>"; };
+		E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = complete_crossword.jpg; sourceTree = "<group>"; };
+		E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crossword_across_1.jpg; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrosswordPuzzle.m; sourceTree = "<group>"; };
@@ -200,7 +202,8 @@
 		E5BF4D411D73928500954321 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E55707811D7CB57100DA0E8E /* complete_crossword.jpg */,
+				E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */,
+				E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */,
 				E59DE6C01D7AC35E00D06F81 /* 61.png */,
 				E576CB7C1D73FDF400D0886A /* crossword_grid.png */,
 				E5BF4D421D73928500954321 /* CrosswordSolver-Info.plist */,
@@ -311,9 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */,
-				E55707821D7CB57100DA0E8E /* complete_crossword.jpg in Resources */,
+				E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */,
 				E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */,
 				E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */,
+				E557078A1D7CCFBB00DA0E8E /* crossword_across_1.jpg in Resources */,
 				E5BF4D451D73928500954321 /* InfoPlist.strings in Resources */,
 				E5BF4D4D1D73928500954321 /* Images.xcassets in Resources */,
 			);
