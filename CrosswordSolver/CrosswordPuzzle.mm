@@ -1,0 +1,82 @@
+//
+//  CrosswordPuzzle.m
+//  CrosswordSolver
+//
+//  Created by Prabhat Kiran on 8/30/16.
+//  Copyright © 2016 ___PrabhatKiranBharathidhasan___. All rights reserved.
+//
+
+#import "CrosswordPuzzle.h"
+
+#define BLACK_GRID -1
+#define EMPTY_GRID 0
+
+@interface CrosswordPuzzle()
+
+@property (nonatomic, assign) int **array;
+
+@end
+
+@implementation CrosswordPuzzle
+
+- (CrosswordPuzzle *)initWithRows:(int)rows columns:(int)columns {
+    self = [super init];
+    if (self) {
+        _rows = rows;
+        _columns = columns;
+        _array = new int*[rows];
+        for(int i = 0; i < rows; ++i)
+            _array[i] = new int[columns];
+    }
+    return self;
+}
+- (void)markEmptyGridAtRow:(int)row col:(int)col {
+    self.array[row][col] = EMPTY_GRID;
+}
+
+- (void)markBlackGridAtRow:(int)row col:(int)col {
+    self.array[row][col] = BLACK_GRID;
+}
+
+- (void)markGridAtRow:(int)row col:(int)col withNum:(int)num {
+    self.array[row][col] = num;
+}
+
+- (int)valueAtRow:(int)row col:(int)col {
+    return self.array[row][col];
+}
+
+- (BOOL)isGridBlackAtRow:(int)row col:(int)col {
+    return self.array[row][col] == BLACK_GRID;
+}
+
+- (BOOL)isGridEmptyAtRow:(int)row col:(int)col {
+    return self.array[row][col] == EMPTY_GRID;
+}
+
+- (void)printCrossword {
+    for (int i = 0; i<self.rows; i++) {
+        printf("\n---------------------------------------\n");
+        for (int j = 0; j<self.columns; j++) {
+            if (j==0) {
+                printf("|");
+            }
+            if ([self isGridBlackAtRow:i col:j]) {
+                printf("--|");
+                continue;
+            }
+            if ([self isGridEmptyAtRow:i col:j]) {
+                printf("  |");
+                continue;
+            }
+            int value = [self valueAtRow:i col:j];
+            if (value > 0 && value < 10) {
+                printf("%d |", value);
+            } else {
+                printf("%d|", value);
+            }
+        }
+    }
+}
+
+@end

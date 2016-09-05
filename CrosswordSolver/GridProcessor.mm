@@ -135,28 +135,31 @@ using namespace cv;
     
     NSLog(@"Rows: %d, Cols: %d", rows, cols);
 
-    int xmin = INT_MAX/4, ymin = INT_MAX/4, xmax = 0, ymax = 0;
+    self.xmin = INT_MAX/4;
+    self.ymin = INT_MAX/4;
+    self.xmax = 0;
+    self.ymax = 0;
     for( size_t i = 0; i < filterThickLines.size(); i++ ) {
         Vec4i line = filterThickLines[i];
         int x1 = line[0];
         int y1 = line[1];
         int x2 = line[2];
         int y2 = line[3];
-        if (x1 + y1 < xmin + ymin) {
-            xmin = x1;
-            ymin = y1;
+        if (x1 + y1 < self.xmin + self.ymin) {
+            self.xmin = x1;
+            self.ymin = y1;
         }
-        if (x2 + y2 < xmin + ymin) {
-            xmin = x2;
-            ymin = y2;
+        if (x2 + y2 < self.xmin + self.ymin) {
+            self.xmin = x2;
+            self.ymin = y2;
         }
-        if (x1 + y1 > xmax + ymax) {
-            xmax = x1;
-            ymax = y1;
+        if (x1 + y1 > self.xmax + self.ymax) {
+            self.xmax = x1;
+            self.ymax = y1;
         }
-        if (x2 + y2 > xmax + ymax) {
-            xmax = x2;
-            ymax = y2;
+        if (x2 + y2 > self.xmax + self.ymax) {
+            self.xmax = x2;
+            self.ymax = y2;
         }
     }
 

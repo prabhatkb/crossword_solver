@@ -7,12 +7,13 @@
 //
 
 #import "DigitExtractor.h"
+#import "CrosswordPuzzle.h"
 
 @implementation DigitExtractor
 
-- (G8Tesseract *) testExtractingImage {
+- (void) populateCrossWord:(CrosswordPuzzle *)puzzle fromImage:(NSString *)imageFilename {
     // Create your G8Tesseract object using the initWithLanguage method:
-    UIImage *crossWordImage = [UIImage imageNamed:@"crossword_grid.png"];
+    UIImage *crossWordImage = [UIImage imageNamed:imageFilename];
 //    CGSize targetSize =
 //            CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
 //    
@@ -27,8 +28,8 @@
     tesseract.maximumRecognitionTime = 60.0;
     tesseract.pageSegmentationMode = G8PageSegmentationModeSingleWord;
     
-    int rows = 15;
-    int cols = 15;
+    int rows = puzzle.rows;
+    int cols = puzzle.columns;
 
     int imageGridWidth = crossWordImage.size.width/cols;
     int imageGridHeight = crossWordImage.size.height/rows;
@@ -38,15 +39,16 @@
     
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            int x = i*imageGridWidth;
-            int y = j*imageGridHeight;
-            CGRect rect = CGRectMake(x+20, y+10, 100, 100);
+            int x = j*imageGridWidth;
+            int y = i*imageGridHeight;
+            CGRect rect = CGRectMake(x+imageGridWidth/10.0, y+imageGridWidth/10.0, 3*imageGridWidth/4, 3*imageGridHeight/4);
             // Check if its a black image.
             // If not its either a blank or a numbered one.
             BOOL isImageBlack = [self checkIfImageIsBlack:crossWordImage inRect:rect];
             if (isImageBlack) {
                 black++;
                 NSLog(@"Block at (%d, %d) is black", i, j);
+                [puzzle markBlackGridAtRow:i col:j];
                 continue;
             }
             
@@ -54,17 +56,19 @@
             if (isImageWhite) {
                 white++;
                 NSLog(@"Block at (%d, %d) is empty", i, j);
+                [puzzle markEmptyGridAtRow:i col:j];
                 continue;
             }
             tesseract.rect = rect;
             [tesseract recognize];
             NSString *recognizedText = [tesseract recognizedText];
-            recognizedText = [[recognizedText componentsSeparatedByString:@"\n"] objectAtIndex:0];
+            NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\n "];
+            recognizedText = [[recognizedText componentsSeparatedByCharactersInSet:set] objectAtIndex:0];
             NSLog(@"Number %@ at %d, %d", recognizedText, i, j);
+            [puzzle markGridAtRow:i col:j withNum:[recognizedText intValue]];
         }
     }
     NSLog(@"Empty %d, Black %d", white, black);
-    return tesseract;
 }
 
 - (BOOL)shouldCancelImageRecognitionForTesseract:(G8Tesseract *)tesseract {

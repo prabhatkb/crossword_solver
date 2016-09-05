@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <TesseractOCR/TesseractOCR.h>
+@class CrosswordPuzzle;
 
 @interface DigitExtractor : NSObject <G8TesseractDelegate>
 
-- (G8Tesseract *) testExtractingImage;
+- (void) populateCrossWord:(CrosswordPuzzle *)puzzle fromImage:(NSString *)imageFilename;
 
 @end

@@ -22,4 +22,9 @@
 @property (nonatomic, assign) int columns;
 @property (nonatomic, assign) int grids;
 
+@property (nonatomic, assign) int xmax;
+@property (nonatomic, assign) int ymax;
+@property (nonatomic, assign) int xmin;
+@property (nonatomic, assign) int ymin;
+
 @end
