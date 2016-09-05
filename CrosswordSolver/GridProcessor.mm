@@ -161,7 +161,8 @@ using namespace cv;
     }
 
     self.cdst = tempDst;
-    return [[CrosswordPuzzle alloc] initWithRows:rows columns:cols];
+    CrosswordPuzzle *puzzle = [[CrosswordPuzzle alloc] initWithRows:rows columns:cols];
+    return puzzle;
 }
 
 - (int)slopeOfLine:(Vec4i) line {

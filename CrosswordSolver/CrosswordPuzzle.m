@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) int rows;
 @property (nonatomic, assign) int columns;
+@property (nonatomic, assign) NSArray *clues;
 
 @end
 

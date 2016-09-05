@@ -12,38 +12,59 @@
 
 - (G8Tesseract *) testExtractingImage {
     // Create your G8Tesseract object using the initWithLanguage method:
+    UIImage *crossWordImage = [UIImage imageNamed:@"crossword_grid.png"];
+//    CGSize targetSize =
+//            CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+//    
+//    UIImage *zoomedImage = [self imageByScaling:initialImage proportionallyToSize:targetSize];
+//    UIImage * crossWordImage = [zoomedImage g8_blackAndWhite];
     G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
     tesseract.delegate = self;
     tesseract.charWhitelist = @"0123456789";
-    UIImage *initialImage = [UIImage imageNamed:@"61.png"];
-//    CGSize targetSize =
-//            CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    tesseract.image = [crossWordImage g8_blackAndWhite];//crossWordImage;
     
-//    UIImage *zoomedImage = [self imageByScaling:initialImage proportionallyToSize:targetSize];
-//    UIImage * crossWordImage = [zoomedImage g8_blackAndWhite];
-    tesseract.image = initialImage;//crossWordImage;
+    tesseract.engineMode = G8OCREngineModeTesseractOnly;
+    tesseract.maximumRecognitionTime = 60.0;
+    tesseract.pageSegmentationMode = G8PageSegmentationModeSingleWord;
+    
+    int rows = 15;
+    int cols = 15;
 
-    tesseract.maximumRecognitionTime = 5.0;
-    [tesseract recognize];
-    NSLog(@"Recognized Text %@", [tesseract recognizedText]);
+    int imageGridWidth = crossWordImage.size.width/cols;
+    int imageGridHeight = crossWordImage.size.height/rows;
+    
+    int white = 0;
+    int black = 0;
+    
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            int x = i*imageGridWidth;
+            int y = j*imageGridHeight;
+            CGRect rect = CGRectMake(x+20, y+10, 100, 100);
+            // Check if its a black image.
+            // If not its either a blank or a numbered one.
+            BOOL isImageBlack = [self checkIfImageIsBlack:crossWordImage inRect:rect];
+            if (isImageBlack) {
+                black++;
+                NSLog(@"Block at (%d, %d) is black", i, j);
+                continue;
+            }
+            
+            BOOL isImageWhite = [self checkIfImageIsWhite:crossWordImage inRect:rect];
+            if (isImageWhite) {
+                white++;
+                NSLog(@"Block at (%d, %d) is empty", i, j);
+                continue;
+            }
+            tesseract.rect = rect;
+            [tesseract recognize];
+            NSString *recognizedText = [tesseract recognizedText];
+            recognizedText = [[recognizedText componentsSeparatedByString:@"\n"] objectAtIndex:0];
+            NSLog(@"Number %@ at %d, %d", recognizedText, i, j);
+        }
+    }
+    NSLog(@"Empty %d, Black %d", white, black);
     return tesseract;
-    
-//    int imageGridWidth = crossWordImage.size.width/cols;
-//    int imageGridHeight = crossWordImage.size.height/rows;
-    
-//    xmin = 0;
-//    ymin = 0;
-//    for (int i = 0; i < rows; i++) {
-//        for (int j = 0; j < cols; j++) {
-//            int x = i*imageGridWidth + xmin;
-//            int y = j*imageGridHeight + ymin;
-//            CGRect currentFrame = CGRectMake(x, y, imageGridWidth, imageGridHeight);
-//            tesseract.rect = currentFrame;
-//            tesseract.maximumRecognitionTime = 5.0;
-//            [tesseract recognize];
-//            NSLog(@"%@ at %d, %d", [tesseract recognizedText], i, j);
-//        }
-//    }
 }
 
 - (BOOL)shouldCancelImageRecognitionForTesseract:(G8Tesseract *)tesseract {
@@ -109,6 +130,76 @@
     
     
     return newImage ;
+}
+
+- (BOOL) checkIfImageIsBlack:(UIImage *)someImage inRect:(CGRect)rect {
+    CGImageRef initiaLimage = someImage.CGImage;
+    CGImageRef image = CGImageCreateWithImageInRect(initiaLimage, rect);
+    size_t width = CGImageGetWidth(image);
+    size_t height = CGImageGetHeight(image);
+    GLubyte * imageData = malloc(width * height * 4);
+    int bytesPerPixel = 4;
+    int bytesPerRow = bytesPerPixel * width;
+    int bitsPerComponent = 8;
+    CGContextRef imageContext =
+    CGBitmapContextCreate(
+                          imageData, width, height, bitsPerComponent, bytesPerRow, CGImageGetColorSpace(image),
+                          kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big
+                          );
+    
+    CGContextSetBlendMode(imageContext, kCGBlendModeCopy);
+    CGContextDrawImage(imageContext, CGRectMake(0, 0, width, height), image);
+    CGContextRelease(imageContext);
+    
+    int byteIndex = 0;
+    
+    BOOL isImageBLack = YES;
+    for ( ; byteIndex < width*height*4; byteIndex += 4) {
+        CGFloat red = ((GLubyte *)imageData)[byteIndex]/255.0f;
+        CGFloat green = ((GLubyte *)imageData)[byteIndex + 1]/255.0f;
+        CGFloat blue = ((GLubyte *)imageData)[byteIndex + 2]/255.0f;
+//        CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
+        if( red != 0 || green != 0 || blue != 0 ){
+            isImageBLack = NO;
+            break;
+        }
+    }
+    return isImageBLack;
+}
+
+- (BOOL) checkIfImageIsWhite:(UIImage *)someImage inRect:(CGRect)rect {
+    CGImageRef initiaLimage = someImage.CGImage;
+    CGImageRef image = CGImageCreateWithImageInRect(initiaLimage, rect);
+    size_t width = CGImageGetWidth(image);
+    size_t height = CGImageGetHeight(image);
+    GLubyte * imageData = malloc(width * height * 4);
+    int bytesPerPixel = 4;
+    int bytesPerRow = bytesPerPixel * width;
+    int bitsPerComponent = 8;
+    CGContextRef imageContext =
+    CGBitmapContextCreate(
+                          imageData, width, height, bitsPerComponent, bytesPerRow, CGImageGetColorSpace(image),
+                          kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big
+                          );
+    
+    CGContextSetBlendMode(imageContext, kCGBlendModeCopy);
+    CGContextDrawImage(imageContext, CGRectMake(0, 0, width, height), image);
+    CGContextRelease(imageContext);
+    
+    int byteIndex = 0;
+    
+    BOOL isImageWhite = YES;
+    for ( ; byteIndex < width*height*4; byteIndex += 4) {
+        CGFloat red = ((GLubyte *)imageData)[byteIndex]/255.0f;
+        CGFloat green = ((GLubyte *)imageData)[byteIndex + 1]/255.0f;
+        CGFloat blue = ((GLubyte *)imageData)[byteIndex + 2]/255.0f;
+        //        CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
+        if( red != 1 || green != 1 || blue != 1 ){
+            isImageWhite = NO;
+            break;
+        }
+    }
+    return isImageWhite;
 }
 
 @end

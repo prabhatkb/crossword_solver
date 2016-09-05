@@ -40,28 +40,28 @@
 //    [newViewController.view addSubview:processedImageView];
     
 //    [navigationController pushViewController:newViewController animated:YES];
-//    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
-//    G8Tesseract *tesseract = [digitExtractor testExtractingImage];
-//    
+    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
+    G8Tesseract *tesseract = [digitExtractor testExtractingImage];
+//
 //    // You could retrieve more information about recognized text with that methods:
-//    NSArray *characterBoxes = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelSymbol];
-//    NSArray *paragraphs = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
-//    NSArray *characterChoices = tesseract.characterChoices;
-//    UIImage *imageWithBlocks = [tesseract imageWithBlocks:characterBoxes drawText:YES thresholded:NO];
-//    
-//    NSLog(@"Character Boxes : %@", characterBoxes);
-//    NSLog(@"Paragraphs : %@", paragraphs);
-//    NSLog(@"Character Choices : %@", characterChoices);
+    NSArray *characterBoxes = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelSymbol];
+    NSArray *paragraphs = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
+    NSArray *characterChoices = tesseract.characterChoices;
+    UIImage *imageWithBlocks = [tesseract imageWithBlocks:characterBoxes drawText:YES thresholded:NO];
     
-//    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:imageWithBlocks];
+    NSLog(@"Character Boxes : %@", characterBoxes);
+    NSLog(@"Paragraphs : %@", paragraphs);
+    NSLog(@"Character Choices : %@", characterChoices);
     
-//    UIViewController *newViewController = [[UIViewController alloc] init];
-//    [newViewController.view addSubview:processedImageView];
-//    
-//    [navigationController pushViewController:newViewController animated:YES];
+    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:imageWithBlocks];
     
-    ClueExtractor *clueExtractor = [[ClueExtractor alloc] init];
-    [clueExtractor processClues];
+    UIViewController *newViewController = [[UIViewController alloc] init];
+    [newViewController.view addSubview:processedImageView];
+    
+    [navigationController pushViewController:newViewController animated:YES];
+    
+//    ClueExtractor *clueExtractor = [[ClueExtractor alloc] init];
+//    [clueExtractor processClues];
     
     return YES;
 }
