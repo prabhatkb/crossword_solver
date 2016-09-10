@@ -131,7 +131,7 @@
 }
 
 - (void)getClues {
-    ClueExtractorViewController *clueExtractor = [[ClueExtractorViewController alloc] init];
+    ClueExtractorViewController *clueExtractor = [[ClueExtractorViewController alloc] initWithPuzzle:self.puzzle forDirection:ClueAcross];
     [self.navigationController pushViewController:clueExtractor animated:YES];
 }
 

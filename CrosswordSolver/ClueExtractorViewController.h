@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CrosswordPuzzle.h"
 
+// Take a picture
 @interface ClueExtractorViewController : UIViewController
+
+- (ClueExtractorViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle
+                                   forDirection:(ClueDirection)clueDirection;
 
 @end

@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Clue.h"
 
 @interface CrosswordPuzzle : NSObject
 
 @property (nonatomic, assign) int rows;
 @property (nonatomic, assign) int columns;
-@property (nonatomic, assign) NSArray *acrossClues;
-@property (nonatomic, assign) NSArray *downClues;
 
 - (CrosswordPuzzle *)initWithRows:(int)rows columns:(int)columns;
 - (void)markEmptyGridAtRow:(int)row col:(int)col;
@@ -23,6 +22,11 @@
 - (int)valueAtRow:(int)row col:(int)col;
 - (BOOL)isGridBlackAtRow:(int)row col:(int)col;
 - (BOOL)isGridEmptyAtRow:(int)row col:(int)col;
+
+- (void)addClue:(Clue *)clue;
+- (void)removeClue:(Clue *)clue;
+
+- (NSArray *)getClues:(ClueDirection)clueDirection;
 
 - (void)printCrossword;
 

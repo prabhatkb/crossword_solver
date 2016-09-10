@@ -14,6 +14,8 @@
 @interface CrosswordPuzzle()
 
 @property (nonatomic, assign) int **array;
+@property (nonatomic) NSMutableSet *acrossClues;
+@property (nonatomic) NSMutableSet *downClues;
 
 @end
 
@@ -27,6 +29,8 @@
         _array = new int*[rows];
         for(int i = 0; i < rows; ++i)
             _array[i] = new int[columns];
+        _acrossClues = [NSMutableSet set];
+        _downClues = [NSMutableSet set];
     }
     return self;
 }
@@ -52,6 +56,31 @@
 
 - (BOOL)isGridEmptyAtRow:(int)row col:(int)col {
     return self.array[row][col] == EMPTY_GRID;
+}
+
+- (void)addClue:(Clue *)clue {
+    if (clue.clueDirection == ClueAcross) {
+        [self.acrossClues addObject:clue];
+    } else if (clue.clueDirection == ClueDown) {
+        [self.downClues addObject:clue];
+    }
+}
+
+- (void)removeClue:(Clue *)clue {
+    if (clue.clueDirection == ClueAcross) {
+        [self.acrossClues removeObject:clue];
+    } else if (clue.clueDirection == ClueDown) {
+        [self.downClues removeObject:clue];
+    }
+}
+
+- (NSArray *)getClues:(ClueDirection)clueDirection {
+    if (clueDirection == ClueDown) {
+        return [self.downClues allObjects];
+    } else if (clueDirection == ClueAcross) {
+        return [self.downClues allObjects];
+    }
+    return nil;
 }
 
 - (void)printCrossword {
