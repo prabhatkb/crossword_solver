@@ -18,6 +18,7 @@
 		E557078C1D7D489000DA0E8E /* 53.png in Resources */ = {isa = PBXBuildFile; fileRef = E557078B1D7D489000DA0E8E /* 53.png */; };
 		E55707901D83B52100DA0E8E /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E557078F1D83B52100DA0E8E /* CameraViewController.m */; };
 		E55707931D83B60100DA0E8E /* ProcessedCrosswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */; };
+		E55707961D83D2A300DA0E8E /* ClueExtractorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */; };
 		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
@@ -72,6 +73,8 @@
 		E557078F1D83B52100DA0E8E /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		E55707911D83B60100DA0E8E /* ProcessedCrosswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessedCrosswordViewController.h; sourceTree = "<group>"; };
 		E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedCrosswordViewController.m; sourceTree = "<group>"; };
+		E55707941D83D2A300DA0E8E /* ClueExtractorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueExtractorViewController.h; sourceTree = "<group>"; };
+		E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueExtractorViewController.m; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CrosswordPuzzle.mm; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				E557078F1D83B52100DA0E8E /* CameraViewController.m */,
 				E55707911D83B60100DA0E8E /* ProcessedCrosswordViewController.h */,
 				E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */,
+				E55707941D83D2A300DA0E8E /* ClueExtractorViewController.h */,
+				E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				E5E8D08B1D73D156004B6199 /* GridProcessor.mm in Sources */,
 				E5BF4D471D73928500954321 /* main.m in Sources */,
 				E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */,
+				E55707961D83D2A300DA0E8E /* ClueExtractorViewController.m in Sources */,
 				E55707931D83B60100DA0E8E /* ProcessedCrosswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

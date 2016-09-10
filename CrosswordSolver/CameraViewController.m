@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "DigitExtractor.h"
 #import "ProcessedCrosswordViewController.h"
 
 @implementation CameraViewController
@@ -39,8 +40,11 @@
 }
 
 - (void)pushCalculatedCrosswordGrid {
-    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
-    CrosswordPuzzle *puzzle = [gridProcessor processPuzzle];
+//    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:@"crossword_grid.png"];
+    CrosswordPuzzle *puzzle = [CrosswordPuzzle testCrosswordPuzzle];
+//    CrosswordPuzzle *puzzle = [gridProcessor processPuzzle];
+//    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
+//    [digitExtractor populateCrossWord:puzzle fromImage:@"crossword_grid.png"];
     ProcessedCrosswordViewController *processedCrosswordViewController = [[ProcessedCrosswordViewController alloc] initWithCrossword:puzzle];
     [self.navigationController pushViewController:processedCrosswordViewController animated:YES];
 }

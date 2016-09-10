@@ -70,13 +70,26 @@
                 continue;
             }
             int value = [self valueAtRow:i col:j];
-            if (value > 0 && value < 10) {
+            if (value >= 0 && value < 10) {
                 printf("%d |", value);
             } else {
                 printf("%d|", value);
             }
         }
     }
+}
+
++ (CrosswordPuzzle *)testCrosswordPuzzle {
+    CrosswordPuzzle *puzzle = [[CrosswordPuzzle alloc] initWithRows:3 columns:3];
+    for (int i = 0; i<puzzle.rows; i++) {
+        for (int j = 0; j<puzzle.columns; j++) {
+            [puzzle markGridAtRow:i col:j withNum:(i*10+j)];
+        }
+    }
+    [puzzle markBlackGridAtRow:0 col:2];
+    [puzzle markBlackGridAtRow:2 col:0];
+    [puzzle markEmptyGridAtRow:1 col:1];
+    return puzzle;
 }
 
 @end

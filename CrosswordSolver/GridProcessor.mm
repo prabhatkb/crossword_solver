@@ -52,13 +52,13 @@ using namespace cv;
     int maxLength = 0;
     for( size_t i = 0; i < lines.size(); i++ ) {
         int length = [self lengthOfLine:lines[i]];
-        NSLog(@"Line Length is %d", length);
+//        NSLog(@"Line Length is %d", length);
         if (length > maxLength) {
             maxLength = length;
         }
     }
     
-    NSLog(@"Max Length is %d", maxLength);
+//    NSLog(@"Max Length is %d", maxLength);
     
     for( size_t i = 0; i < lines.size(); i++ ) {
         int slope = [self slopeOfLine:lines[i]];
@@ -69,8 +69,8 @@ using namespace cv;
         }
     }
 
-    NSLog(@"Original Number of lines %lu", lines.size());
-    NSLog(@"Number of lines %lu", filteredLines.size());
+//    NSLog(@"Original Number of lines %lu", lines.size());
+//    NSLog(@"Number of lines %lu", filteredLines.size());
     
     // Remove the thick ones.
     vector<Vec4i> filterThickLines;
@@ -104,7 +104,7 @@ using namespace cv;
         }
     }
     
-    NSLog(@"Number of lines after thickness filter %lu", filterThickLines.size());
+//    NSLog(@"Number of lines after thickness filter %lu", filterThickLines.size());
     
     for( size_t i = 0; i < filterThickLines.size(); i++ ) {
         Vec4i l = filterThickLines[i];
@@ -133,7 +133,7 @@ using namespace cv;
     int rows = maxLength/gridLength;
     int cols = maxLength/gridLength;
     
-    NSLog(@"Rows: %d, Cols: %d", rows, cols);
+//    NSLog(@"Rows: %d, Cols: %d", rows, cols);
 
     self.xmin = INT_MAX/4;
     self.ymin = INT_MAX/4;

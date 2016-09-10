@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CrosswordPuzzle.h"
 
-@interface ProcessedCrosswordViewController : UIViewController
+@interface ProcessedCrosswordViewController : UIViewController <UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (id)initWithCrossword:(CrosswordPuzzle *)puzzle;
 
