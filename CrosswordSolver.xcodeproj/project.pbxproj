@@ -16,6 +16,8 @@
 		E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */; };
 		E557078A1D7CCFBB00DA0E8E /* crossword_across_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */; };
 		E557078C1D7D489000DA0E8E /* 53.png in Resources */ = {isa = PBXBuildFile; fileRef = E557078B1D7D489000DA0E8E /* 53.png */; };
+		E55707901D83B52100DA0E8E /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E557078F1D83B52100DA0E8E /* CameraViewController.m */; };
+		E55707931D83B60100DA0E8E /* ProcessedCrosswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */; };
 		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
@@ -66,6 +68,10 @@
 		E55707871D7CCFBB00DA0E8E /* complete_crossword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = complete_crossword.jpg; sourceTree = "<group>"; };
 		E55707881D7CCFBB00DA0E8E /* crossword_across_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crossword_across_1.jpg; sourceTree = "<group>"; };
 		E557078B1D7D489000DA0E8E /* 53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 53.png; sourceTree = "<group>"; };
+		E557078E1D83B52100DA0E8E /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		E557078F1D83B52100DA0E8E /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		E55707911D83B60100DA0E8E /* ProcessedCrosswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessedCrosswordViewController.h; sourceTree = "<group>"; };
+		E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedCrosswordViewController.m; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CrosswordPuzzle.mm; sourceTree = "<group>"; };
@@ -140,6 +146,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E557078D1D83B50700DA0E8E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E557078E1D83B52100DA0E8E /* CameraViewController.h */,
+				E557078F1D83B52100DA0E8E /* CameraViewController.m */,
+				E55707911D83B60100DA0E8E /* ProcessedCrosswordViewController.h */,
+				E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E5BF4D2E1D73928500954321 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +200,7 @@
 		E5BF4D401D73928500954321 /* CrosswordSolver */ = {
 			isa = PBXGroup;
 			children = (
+				E557078D1D83B50700DA0E8E /* ViewControllers */,
 				E5BF4D491D73928500954321 /* AppDelegate.h */,
 				E5BF4D4A1D73928500954321 /* AppDelegate.m */,
 				E5E8D0891D73D156004B6199 /* GridProcessor.h */,
@@ -436,12 +454,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */,
+				E55707901D83B52100DA0E8E /* CameraViewController.m in Sources */,
 				E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */,
 				E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */,
 				E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */,
 				E5E8D08B1D73D156004B6199 /* GridProcessor.mm in Sources */,
 				E5BF4D471D73928500954321 /* main.m in Sources */,
 				E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */,
+				E55707931D83B60100DA0E8E /* ProcessedCrosswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

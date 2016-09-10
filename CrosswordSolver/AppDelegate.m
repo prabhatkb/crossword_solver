@@ -12,6 +12,7 @@
 #import "ClueExtractor.h"
 #import "CrosswordPuzzle.h"
 #import <TesseractOCR/TesseractOCR.h>
+#import "CameraViewController.h"
 
 @implementation AppDelegate
 
@@ -22,22 +23,15 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UIViewController *rootViewController = [[UIViewController alloc] init];
-    UIImage *initialImage = [UIImage imageNamed:@"crossword_grid.png"];
-    UIImageView *initialImageView = [[UIImageView alloc] initWithImage:initialImage];
-    [rootViewController.view addSubview:initialImageView];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    CameraViewController *cameraViewController = [[CameraViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
     navigationController.navigationBarHidden = YES;
-    
     self.window.rootViewController = navigationController;
     
-    NSString *imageFilename = @"crossword_grid.png";
-    
-    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:imageFilename];
-    CrosswordPuzzle *puzzle = [gridProcessor processPuzzle];
-    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
-    [digitExtractor populateCrossWord:puzzle fromImage:imageFilename];
+//    GridProcessor *gridProcessor = [[GridProcessor alloc] initWithImageNamed:imageFilename];
+//    CrosswordPuzzle *puzzle = [gridProcessor processPuzzle];
+//    DigitExtractor *digitExtractor = [[DigitExtractor alloc] init];
+//    [digitExtractor populateCrossWord:puzzle fromImage:imageFilename];
     
 //    NSArray *characterBoxes = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelSymbol];
 //    NSLog(@"%@", characterBoxes);
@@ -47,7 +41,7 @@
 //    NSLog(@"%@", characterChoices);
 //    UIImage *imageWithBlocks = [tesseract imageWithBlocks:characterBoxes drawText:YES thresholded:NO];
     
-    [puzzle printCrossword];
+//    [puzzle printCrossword];
     
 //    UIImageView *processedImageView = [[UIImageView alloc] initWithImage:imageWithBlocks];
 //    
@@ -60,6 +54,10 @@
 //    [clueExtractor processClues];
     
     return YES;
+}
+
+- (void)pushCalculatedCrosswordGrid {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
