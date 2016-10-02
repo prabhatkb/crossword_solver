@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Clue.h"
 
+/*
+ * Represents the crossword that the app solves.
+ * It has the grid information and the clues (Across and Down)
+ */
+
 @interface CrosswordPuzzle : NSObject
 
 @property (nonatomic, assign) int rows;

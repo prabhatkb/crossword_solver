@@ -9,10 +9,6 @@
 #import "ProcessedCluesViewController.h"
 #import "ClueExtractor.h"
 
-#define NUMBER_CELL_WIDTH 30
-
-#define CELL_OFFSET 5
-
 #define CELL_HEIGHT 40
 
 @interface ProcessedCluesViewController ()
@@ -77,21 +73,6 @@
     UITableViewCell * tableViewCell = nil;
     
     NSInteger row = indexPath.row;
-    
-    if ([tableView isEqual:self.numberTableView]) {
-        tableViewCell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, NUMBER_CELL_WIDTH, CELL_HEIGHT)];
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, NUMBER_CELL_WIDTH, CELL_HEIGHT)];
-        int clueIndex = [(Clue *)self.clues[row] clueIndex];
-        NSString *clueString = [NSString stringWithFormat:@"%d", clueIndex];
-        [textView setText:clueString];
-        [tableViewCell addSubview:textView];
-    } else {
-        tableViewCell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, screenWidth - NUMBER_CELL_WIDTH - CELL_OFFSET, CELL_HEIGHT)];
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenWidth - NUMBER_CELL_WIDTH - CELL_OFFSET, CELL_HEIGHT)];
-        NSString *clueString = [(Clue *)self.clues[row] clueString];
-        [textView setText:clueString];
-        [tableViewCell addSubview:textView];
-    }
     return tableViewCell;
 }
 
@@ -99,15 +80,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

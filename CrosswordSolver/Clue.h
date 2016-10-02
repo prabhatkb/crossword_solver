@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ * Represents a single clue in the crossword.
+ * It is parsed by the ClueExtractor and gets added to the Crossword Puzzle object.
+ */
+
 typedef enum : NSUInteger {
     ClueAcross,
     ClueDown,
@@ -15,7 +20,7 @@ typedef enum : NSUInteger {
 
 @interface Clue : NSObject
 
-@property (nonatomic) int clueIndex;
+@property (nonatomic) NSInteger clueIndex;
 @property (nonatomic) NSString *clueString;
 @property (nonatomic) ClueDirection clueDirection;
 @property (nonatomic) int numOfCharacters;

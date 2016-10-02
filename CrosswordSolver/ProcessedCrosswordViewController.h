@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CrosswordPuzzle.h"
 
+// Shows the grid and gets correction from the user.
+
 @interface ProcessedCrosswordViewController : UIViewController <UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (id)initWithCrossword:(CrosswordPuzzle *)puzzle;

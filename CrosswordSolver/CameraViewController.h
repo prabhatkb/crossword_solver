@@ -11,6 +11,12 @@
 #import "GridProcessor.h"
 #import "CrosswordPuzzle.h"
 
+// The first view controller that we show.
+// Should ideally tap into the camera and get a picture for the first crossword that we should solve.
+
+// Right now, we directly show the image that we have in the build and display a "Proceed button"
+// After the button is tap, the processed grid is displayed.
+
 @interface CameraViewController : UIViewController
 
 @end

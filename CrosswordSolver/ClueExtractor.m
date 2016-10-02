@@ -19,7 +19,7 @@
     return self;
 }
 
-- (NSArray *)processClues {
+- (NSArray<Clue *> *)processClues {
     G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
     tesseract.delegate = self;
 //    tesseract.charWhitelist = @"0123456789";
@@ -36,7 +36,7 @@
 }
 
 // If a newline is not followed by a number
-- (NSArray *)extractClues:(NSArray *)arrayOfClues {
+- (NSArray<Clue *> *)extractClues:(NSArray *)arrayOfClues {
     
     NSMutableArray *filteredForWhiteSpaceArray = [NSMutableArray array];
     for (NSString *clue in arrayOfClues) {
