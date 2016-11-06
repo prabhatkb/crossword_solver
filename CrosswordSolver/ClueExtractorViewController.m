@@ -7,25 +7,20 @@
 //
 
 #import "ClueExtractorViewController.h"
-#import "ProcessedCluesViewController.h"
+#import "ProcessedCluesTableViewController.h"
 
 @interface ClueExtractorViewController ()
 
 @property (nonatomic) CrosswordPuzzle *puzzle;
-// For every image taken, put the path for the image here.
-@property (nonatomic) NSMutableArray *imagePaths;
-@property (nonatomic) ClueDirection clueDirection;
 
 @end
 
 @implementation ClueExtractorViewController
 
-- (ClueExtractorViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle
-                                   forDirection:(ClueDirection)clueDirection {
+- (ClueExtractorViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle {
     self = [super init];
     if (self) {
         _puzzle = puzzle;
-        _clueDirection = clueDirection;
     }
     return self;
 }
@@ -61,27 +56,17 @@
 }
 
 - (void)pushCalculatedClues {
-    ProcessedCluesViewController *nextViewController = [[ProcessedCluesViewController alloc] initWithPuzzle:self.puzzle forDirection:self.clueDirection];
+    ProcessedCluesTableViewController *nextViewController =
+        [[ProcessedCluesTableViewController alloc] initWithPuzzle:self.puzzle
+                                                 acrossClueImages:@[@"crossword_across_1.jpg"]
+                                                   downClueImages:nil];
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
+// Take more pictures for the particular image.
+// ALso the array should be such that [UIImage imageFrom:arr[i]] should directly work.
 - (void)takeAnotherPicture:(id) sender {
     [self pushCalculatedClues];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

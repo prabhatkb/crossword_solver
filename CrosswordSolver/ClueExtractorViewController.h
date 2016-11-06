@@ -12,7 +12,9 @@
 // Take a picture
 @interface ClueExtractorViewController : UIViewController
 
-- (ClueExtractorViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle
-                                   forDirection:(ClueDirection)clueDirection;
+// This takes a picture of all the clues.
+// We need to get pictures for one direction at a time.
+
+- (ClueExtractorViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle;
 
 @end

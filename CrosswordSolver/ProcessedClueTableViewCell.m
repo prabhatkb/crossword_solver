@@ -27,6 +27,10 @@
         for (int i = 1; i <= 50; i++) {
             [_pickerSource addObject:@(i)];
         }
+        _clueIndexPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
+        _clueIndexPickerView.delegate = self;
+        _clueIndexPickerView.dataSource = self;
+        _clueIndexPickerView.showsSelectionIndicator = YES;
     }
     return self;
 }
@@ -35,8 +39,6 @@
     [super awakeFromNib];
     // Initialization code
     self.clueStringTextField.delegate = self;
-    self.clueIndexPickerView.delegate = self;
-    self.clueIndexPickerView.dataSource = self;
 
     // Set the picker to the clue index.
     [self.clueIndexTextField setText:[NSString stringWithFormat:@"%ld", (long)self.clue.clueIndex]];

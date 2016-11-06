@@ -14,8 +14,7 @@
 @interface CrosswordPuzzle()
 
 @property (nonatomic, assign) int **array;
-@property (nonatomic) NSMutableSet *acrossClues;
-@property (nonatomic) NSMutableSet *downClues;
+@property (nonatomic) NSMutableSet<Clue *> *clues;
 
 @end
 
@@ -29,8 +28,7 @@
         _array = new int*[rows];
         for(int i = 0; i < rows; ++i)
             _array[i] = new int[columns];
-        _acrossClues = [NSMutableSet set];
-        _downClues = [NSMutableSet set];
+        _clues = [NSMutableSet set];
     }
     return self;
 }
@@ -59,28 +57,18 @@
 }
 
 - (void)addClue:(Clue *)clue {
-    if (clue.clueDirection == ClueAcross) {
-        [self.acrossClues addObject:clue];
-    } else if (clue.clueDirection == ClueDown) {
-        [self.downClues addObject:clue];
-    }
+    [self.clues addObject:clue];
 }
 
-- (void)removeClue:(Clue *)clue {
-    if (clue.clueDirection == ClueAcross) {
-        [self.acrossClues removeObject:clue];
-    } else if (clue.clueDirection == ClueDown) {
-        [self.downClues removeObject:clue];
+- (NSArray<Clue *> *)getClues:(ClueDirection)clueDirection {
+    NSMutableArray<Clue *> *cluesInDirection = [NSMutableArray array];
+    NSArray<Clue *> *clues = [self.clues allObjects];
+    for (Clue *clue in clues) {
+        if (clue.clueDirection == clueDirection) {
+            [cluesInDirection addObject:clue];
+        }
     }
-}
-
-- (NSArray *)getClues:(ClueDirection)clueDirection {
-    if (clueDirection == ClueDown) {
-        return [self.downClues allObjects];
-    } else if (clueDirection == ClueAcross) {
-        return [self.downClues allObjects];
-    }
-    return nil;
+    return cluesInDirection;
 }
 
 - (void)printCrossword {

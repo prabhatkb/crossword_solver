@@ -12,12 +12,12 @@
 #import "Clue.h"
 
 /*
- * Extracts the clues from the sample image directly that is hard-coded.
- * processClues, gives an array of Clues.
+ * Extracts the clues from the given image.
+ * For the prototype, the image is directly hard-coded.
  */
 
 @interface ClueExtractor : NSObject <G8TesseractDelegate>
 
-- (NSArray<Clue *> *)processClues;
+- (NSArray<Clue *> *)processClues:(NSString *)imageFilePath;
 
 @end

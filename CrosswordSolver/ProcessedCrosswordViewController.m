@@ -28,7 +28,6 @@
     self = [super init];
     if (self) {
         _puzzle = puzzle;
-        [puzzle printCrossword];
         _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
         [_pickerView setDataSource: self];
         [_pickerView setDelegate: self];
@@ -77,12 +76,10 @@
                 UIView *randomView = [[UIView alloc] initWithFrame:rect];
                 randomView.backgroundColor = [UIColor blackColor];
                 [self.view addSubview:randomView];
-//                NSLog(@"Grid at %d, %d is black", i, j);
             } else if ([self.puzzle isGridEmptyAtRow:i col:j]) {
                 UIView *randomView = [[UIView alloc] initWithFrame:rect];
                 randomView.backgroundColor = [UIColor whiteColor];
                 [self.view addSubview:randomView];
-//                NSLog(@"Grid at %d, %d is white", i, j);
             } else {
                 int value = [self.puzzle valueAtRow:i col:j];
                 UITextView *textView = [[UITextView alloc] initWithFrame:rect];
@@ -91,11 +88,6 @@
                 textView.font = [UIFont boldSystemFontOfSize:6.5];
                 textView.text = [NSString stringWithFormat:@"%d", value];
                 textView.delegate = self;
-//                NSLog(@"Screen width %d, font size %@",screenWidth, textView.font);
-//                NSLog(@"Grid at %d, %d is has vlaue %@", i, j, textView.text);
-//                [textView addTarget:self
-//                             action:@selector(textViewChanged:)
-//                   forControlEvents:UIControlEventEditingChanged];
                 textView.inputView = self.pickerView;
                 textView.inputAccessoryView = self.toolBar;
                 [self.view addSubview:textView];
@@ -131,7 +123,8 @@
 }
 
 - (void)getClues {
-    ClueExtractorViewController *clueExtractor = [[ClueExtractorViewController alloc] initWithPuzzle:self.puzzle forDirection:ClueAcross];
+    // SHort-circuiting the thing to directly send a sample input.
+    ClueExtractorViewController *clueExtractor = [[ClueExtractorViewController alloc] initWithPuzzle:self.puzzle];
     [self.navigationController pushViewController:clueExtractor animated:YES];
 }
 

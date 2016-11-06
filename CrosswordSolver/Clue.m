@@ -10,21 +10,38 @@
 
 @implementation Clue
 
-- (id)init {
+- (id)initAcrossClueAtIndex:(NSInteger)clueIndex
+                 clueString:(NSString *)clueString
+            numOfCharacters:(int)numOfCharacters {
     self = [super init];
     if (self) {
-        _clueIndex = 0;
-        _clueDirection = ClueAcross;
-        _clueString = @"";
+        _clueIndex = clueIndex;
+        _clueString = clueString;
+        _numOfCharacters = numOfCharacters;
+        _clueDirection = ClueDirectionAcross;
     }
     return self;
 }
 
-- (NSString *)description {
-    if (self.clueDirection == ClueAcross) {
-        return [NSString stringWithFormat:@"Across %d %@", self.clueIndex, self.clueString];
+- (id)initDownClueAtIndex:(NSInteger)clueIndex
+               clueString:(NSString *)clueString
+          numOfCharacters:(int)numOfCharacters {
+    self = [super init];
+    if (self) {
+        _clueIndex = clueIndex;
+        _clueString = clueString;
+        _numOfCharacters = numOfCharacters;
+        _clueDirection = ClueDirectionDown;
     }
-    return [NSString stringWithFormat:@"Down %d %@", self.clueIndex, self.clueString];
+    return self;
+}
+
+
+- (NSString *)description {
+    if (self.clueDirection == ClueDirectionAcross) {
+        return [NSString stringWithFormat:@"Across %ld %@", self.clueIndex, self.clueString];
+    }
+    return [NSString stringWithFormat:@"Down %ld %@", self.clueIndex, self.clueString];
 }
 
 @end

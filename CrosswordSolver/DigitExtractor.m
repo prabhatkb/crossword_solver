@@ -9,34 +9,44 @@
 #import "DigitExtractor.h"
 #import "CrosswordPuzzle.h"
 
+@interface DigitExtractor ()
+@property (nonatomic) G8Tesseract *tesseract;
+@end
+
 @implementation DigitExtractor
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
+        _tesseract.delegate = self;
+        _tesseract.charWhitelist = @"0123456789";
+        _tesseract.engineMode = G8OCREngineModeTesseractOnly;
+        _tesseract.maximumRecognitionTime = 60.0;
+        _tesseract.pageSegmentationMode = G8PageSegmentationModeSingleWord;
+    }
+    return self;
+}
+
 - (void) populateCrossWord:(CrosswordPuzzle *)puzzle fromImage:(NSString *)imageFilename {
-    // Create your G8Tesseract object using the initWithLanguage method:
     UIImage *crossWordImage = [UIImage imageNamed:@"crossword_grid.png"];
 //    CGSize targetSize =
 //            CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
 //    
 //    UIImage *zoomedImage = [self imageByScaling:initialImage proportionallyToSize:targetSize];
 //    UIImage * crossWordImage = [zoomedImage g8_blackAndWhite];
-    G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
-    tesseract.delegate = self;
-    tesseract.charWhitelist = @"0123456789";
-    tesseract.image = [crossWordImage g8_blackAndWhite];//crossWordImage;
-    
-    tesseract.engineMode = G8OCREngineModeTesseractOnly;
-    tesseract.maximumRecognitionTime = 60.0;
-    tesseract.pageSegmentationMode = G8PageSegmentationModeSingleWord;
-    
+
+    self.tesseract.image = [crossWordImage g8_blackAndWhite];//crossWordImage;
+
     int rows = puzzle.rows;
     int cols = puzzle.columns;
 
     int imageGridWidth = crossWordImage.size.width/cols;
     int imageGridHeight = crossWordImage.size.height/rows;
-    
+
     int white = 0;
     int black = 0;
-    
+
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             int x = j*imageGridWidth;
@@ -47,19 +57,19 @@
             BOOL isImageBlack = [self checkIfImageIsBlack:crossWordImage inRect:rect];
             if (isImageBlack) {
                 black++;
-//                NSLog(@"Block at (%d, %d) is black", i, j);
+                // NSLog(@"Block at (%d, %d) is black", i, j);
                 [puzzle markBlackGridAtRow:i col:j];
                 continue;
             }
-            
+
             BOOL isImageWhite = [self checkIfImageIsWhite:crossWordImage inRect:rect];
             if (isImageWhite) {
                 white++;
-//                NSLog(@"Block at (%d, %d) is empty", i, j);
+                // NSLog(@"Block at (%d, %d) is empty", i, j);
                 [puzzle markEmptyGridAtRow:i col:j];
                 continue;
             }
-            
+
             int newx = rect.origin.x;
             int newy = rect.origin.y;
             float maxConfidence = 0;
@@ -67,14 +77,14 @@
             for (int i = newx; i>=(newx-(imageGridWidth/10.0)); i--) {
                 for (int j = newy; j>=(newy-(imageGridHeight/10.0)); j--) {
                     rect = CGRectMake(i, j, rect.size.width, rect.size.height);
-                    tesseract.rect = rect;
-                    [tesseract recognize];
-                    NSArray *paragraphs = [tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
+                    self.tesseract.rect = rect;
+                    [self.tesseract recognize];
+                    NSArray *paragraphs = [self.tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelParagraph];
                     if (paragraphs.count == 0) {
                         break;
                     }
                     float confidence = [(G8RecognizedBlock *)[paragraphs objectAtIndex:0] confidence];
-                    NSString *tmpString = [tesseract recognizedText];
+                    NSString *tmpString = [self.tesseract recognizedText];
                     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\n "];
                     tmpString = [[tmpString componentsSeparatedByCharactersInSet:set] objectAtIndex:0];
                     if (confidence > maxConfidence && tmpString.length <=2) {
@@ -83,7 +93,7 @@
                     }
                 }
             }
-        
+
             NSString *recognizedText = recognizedTextWithHighestConfidence;
             NSLog(@"Number %@ at %d, %d with %f", recognizedText, i, j, maxConfidence);
             [puzzle markGridAtRow:i col:j withNum:[recognizedText intValue]];
@@ -183,7 +193,7 @@
         CGFloat red = ((GLubyte *)imageData)[byteIndex]/255.0f;
         CGFloat green = ((GLubyte *)imageData)[byteIndex + 1]/255.0f;
         CGFloat blue = ((GLubyte *)imageData)[byteIndex + 2]/255.0f;
-//        CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
+        // CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
         if( red != 0 || green != 0 || blue != 0 ){
             isImageBLack = NO;
             break;
@@ -218,7 +228,7 @@
         CGFloat red = ((GLubyte *)imageData)[byteIndex]/255.0f;
         CGFloat green = ((GLubyte *)imageData)[byteIndex + 1]/255.0f;
         CGFloat blue = ((GLubyte *)imageData)[byteIndex + 2]/255.0f;
-        //        CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
+        // CGFloat alpha = ((GLubyte *)imageData)[byteIndex + 3]/255.0f;
         if( red != 1 || green != 1 || blue != 1 ){
             isImageWhite = NO;
             break;

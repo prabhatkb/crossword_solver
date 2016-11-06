@@ -12,6 +12,8 @@
 		E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = E5793F861D7AA3B200123B4C /* tessdata */; };
 		E53438121DA1C2A5006B719F /* ProcessedClueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53438101DA1C2A5006B719F /* ProcessedClueTableViewCell.m */; };
 		E53438131DA1C2A5006B719F /* ProcessedClueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53438111DA1C2A5006B719F /* ProcessedClueTableViewCell.xib */; };
+		E53438171DA1D178006B719F /* ProcessedCluesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53438151DA1D178006B719F /* ProcessedCluesTableViewController.m */; };
+		E53438181DA1D178006B719F /* ProcessedCluesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53438161DA1D178006B719F /* ProcessedCluesTableViewController.xib */; };
 		E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */; };
 		E557077D1D7CB4CB00DA0E8E /* ClueExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077C1D7CB4CB00DA0E8E /* ClueExtractor.m */; };
 		E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */ = {isa = PBXBuildFile; fileRef = E557077F1D7CB4FC00DA0E8E /* Clue.m */; };
@@ -21,7 +23,6 @@
 		E55707901D83B52100DA0E8E /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E557078F1D83B52100DA0E8E /* CameraViewController.m */; };
 		E55707931D83B60100DA0E8E /* ProcessedCrosswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */; };
 		E55707961D83D2A300DA0E8E /* ClueExtractorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */; };
-		E55707991D84AA6600DA0E8E /* ProcessedCluesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55707981D84AA6600DA0E8E /* ProcessedCluesViewController.m */; };
 		E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E576CB7C1D73FDF400D0886A /* crossword_grid.png */; };
 		E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */; };
 		E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = E59DE6C01D7AC35E00D06F81 /* 61.png */; };
@@ -66,6 +67,9 @@
 		E534380F1DA1C2A5006B719F /* ProcessedClueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessedClueTableViewCell.h; sourceTree = "<group>"; };
 		E53438101DA1C2A5006B719F /* ProcessedClueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedClueTableViewCell.m; sourceTree = "<group>"; };
 		E53438111DA1C2A5006B719F /* ProcessedClueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessedClueTableViewCell.xib; sourceTree = "<group>"; };
+		E53438141DA1D178006B719F /* ProcessedCluesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessedCluesTableViewController.h; sourceTree = "<group>"; };
+		E53438151DA1D178006B719F /* ProcessedCluesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedCluesTableViewController.m; sourceTree = "<group>"; };
+		E53438161DA1D178006B719F /* ProcessedCluesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessedCluesTableViewController.xib; sourceTree = "<group>"; };
 		E55707781D7B3DAA00DA0E8E /* DigitExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitExtractor.h; sourceTree = "<group>"; };
 		E55707791D7B3DAA00DA0E8E /* DigitExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitExtractor.m; sourceTree = "<group>"; };
 		E557077B1D7CB4CB00DA0E8E /* ClueExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueExtractor.h; sourceTree = "<group>"; };
@@ -81,8 +85,6 @@
 		E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedCrosswordViewController.m; sourceTree = "<group>"; };
 		E55707941D83D2A300DA0E8E /* ClueExtractorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueExtractorViewController.h; sourceTree = "<group>"; };
 		E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueExtractorViewController.m; sourceTree = "<group>"; };
-		E55707971D84AA6600DA0E8E /* ProcessedCluesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessedCluesViewController.h; sourceTree = "<group>"; };
-		E55707981D84AA6600DA0E8E /* ProcessedCluesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessedCluesViewController.m; sourceTree = "<group>"; };
 		E576CB7C1D73FDF400D0886A /* crossword_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crossword_grid.png; path = ../crossword_grid.png; sourceTree = "<group>"; };
 		E5793D031D76A16B00123B4C /* CrosswordPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrosswordPuzzle.h; sourceTree = "<group>"; };
 		E5793D041D76A16B00123B4C /* CrosswordPuzzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CrosswordPuzzle.mm; sourceTree = "<group>"; };
@@ -176,8 +178,9 @@
 				E55707921D83B60100DA0E8E /* ProcessedCrosswordViewController.m */,
 				E55707941D83D2A300DA0E8E /* ClueExtractorViewController.h */,
 				E55707951D83D2A300DA0E8E /* ClueExtractorViewController.m */,
-				E55707971D84AA6600DA0E8E /* ProcessedCluesViewController.h */,
-				E55707981D84AA6600DA0E8E /* ProcessedCluesViewController.m */,
+				E53438141DA1D178006B719F /* ProcessedCluesTableViewController.h */,
+				E53438151DA1D178006B719F /* ProcessedCluesTableViewController.m */,
+				E53438161DA1D178006B719F /* ProcessedCluesTableViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				E59DE6C11D7AC35E00D06F81 /* 61.png in Resources */,
 				E557078C1D7D489000DA0E8E /* 53.png in Resources */,
+				E53438181DA1D178006B719F /* ProcessedCluesTableViewController.xib in Resources */,
 				E55707891D7CCFBB00DA0E8E /* complete_crossword.jpg in Resources */,
 				E530707E1D7AAE9A009C8BB6 /* tessdata in Resources */,
 				E576CB7D1D73FDF400D0886A /* crossword_grid.png in Resources */,
@@ -483,8 +487,8 @@
 				E557077A1D7B3DAA00DA0E8E /* DigitExtractor.m in Sources */,
 				E55707901D83B52100DA0E8E /* CameraViewController.m in Sources */,
 				E5793D051D76A16B00123B4C /* CrosswordPuzzle.mm in Sources */,
+				E53438171DA1D178006B719F /* ProcessedCluesTableViewController.m in Sources */,
 				E53438121DA1C2A5006B719F /* ProcessedClueTableViewCell.m in Sources */,
-				E55707991D84AA6600DA0E8E /* ProcessedCluesViewController.m in Sources */,
 				E55707801D7CB4FC00DA0E8E /* Clue.m in Sources */,
 				E5BF4D4B1D73928500954321 /* AppDelegate.m in Sources */,
 				E5E8D08B1D73D156004B6199 /* GridProcessor.mm in Sources */,

@@ -17,6 +17,17 @@ using namespace cv;
 
 @property (nonatomic) Mat cdst;
 
+@property (nonatomic, assign) int rows;
+@property (nonatomic, assign) int columns;
+@property (nonatomic, assign) int grids;
+
+@property (nonatomic, assign) int xmax;
+@property (nonatomic, assign) int ymax;
+@property (nonatomic, assign) int xmin;
+@property (nonatomic, assign) int ymin;
+
+@property (nonatomic, strong) NSString *puzzleImageName;
+
 @end
 
 @implementation GridProcessor
@@ -42,7 +53,7 @@ using namespace cv;
     cvtColor(dst, tempDst, CV_GRAY2BGR);
     
     int screenWidth = [[UIScreen mainScreen] bounds].size.width;
-//    int screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    // int screenHeight = [[UIScreen mainScreen] bounds].size.height;
     
     vector<Vec4i> lines;
     vector<Vec4i> filteredLines;
@@ -52,13 +63,13 @@ using namespace cv;
     int maxLength = 0;
     for( size_t i = 0; i < lines.size(); i++ ) {
         int length = [self lengthOfLine:lines[i]];
-//        NSLog(@"Line Length is %d", length);
+        // NSLog(@"Line Length is %d", length);
         if (length > maxLength) {
             maxLength = length;
         }
     }
     
-//    NSLog(@"Max Length is %d", maxLength);
+    // NSLog(@"Max Length is %d", maxLength);
     
     for( size_t i = 0; i < lines.size(); i++ ) {
         int slope = [self slopeOfLine:lines[i]];
@@ -69,8 +80,8 @@ using namespace cv;
         }
     }
 
-//    NSLog(@"Original Number of lines %lu", lines.size());
-//    NSLog(@"Number of lines %lu", filteredLines.size());
+    // NSLog(@"Original Number of lines %lu", lines.size());
+    // NSLog(@"Number of lines %lu", filteredLines.size());
     
     // Remove the thick ones.
     vector<Vec4i> filterThickLines;
@@ -103,12 +114,12 @@ using namespace cv;
             filterThickLines.push_back(currentLine);
         }
     }
-    
-//    NSLog(@"Number of lines after thickness filter %lu", filterThickLines.size());
-    
+
+    // NSLog(@"Number of lines after thickness filter %lu", filterThickLines.size());
+
     for( size_t i = 0; i < filterThickLines.size(); i++ ) {
         Vec4i l = filterThickLines[i];
-//        NSLog(@"Line from (%d, %d) to (%d, %d)", l[i][0], l[i][1], l[i][2], l[i][3]);
+        // NSLog(@"Line from (%d, %d) to (%d, %d)", l[i][0], l[i][1], l[i][2], l[i][3]);
         line( tempDst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
     }
     
@@ -133,7 +144,7 @@ using namespace cv;
     int rows = maxLength/gridLength;
     int cols = maxLength/gridLength;
     
-//    NSLog(@"Rows: %d, Cols: %d", rows, cols);
+    // NSLog(@"Rows: %d, Cols: %d", rows, cols);
 
     self.xmin = INT_MAX/4;
     self.ymin = INT_MAX/4;
@@ -211,8 +222,7 @@ using namespace cv;
     return [self image:[self UIImageFromCVMat:self.cdst] scaledToSize:screenSize];
 }
 
-- (UIImage *)image:(UIImage*)originalImage scaledToSize:(CGSize)size
-{
+- (UIImage *)image:(UIImage*)originalImage scaledToSize:(CGSize)size {
     //avoid redundant drawing
     if (CGSizeEqualToSize(originalImage.size, size))
     {
@@ -233,8 +243,7 @@ using namespace cv;
     return image;
 }
 
-- (Mat)cvMatFromUIImage:(UIImage *)image
-{
+- (Mat)cvMatFromUIImage:(UIImage *)image {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
     CGFloat rows = image.size.height;
@@ -256,8 +265,7 @@ using namespace cv;
     return cvMat;
 }
 
--(UIImage *)UIImageFromCVMat:(Mat)cvMat
-{
+- (UIImage *)UIImageFromCVMat:(Mat)cvMat {
     NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
     CGColorSpaceRef colorSpace;
 

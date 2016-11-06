@@ -30,7 +30,7 @@
                 <outlet property="clueIndexTextField" destination="xaR-Yn-OfM" id="I7p-Wh-bFa"/>
                 <outlet property="clueStringTextField" destination="MbX-Uj-7wv" id="8ew-0N-MEy"/>
             </connections>
-            <point key="canvasLocation" x="-195" y="236"/>
+            <point key="canvasLocation" x="-398" y="237"/>
         </tableViewCell>
     </objects>
 </document>
