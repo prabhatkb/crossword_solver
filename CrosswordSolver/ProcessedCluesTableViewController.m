@@ -16,40 +16,19 @@
 @interface ProcessedCluesTableViewController ()
 
 @property (nonatomic) CrosswordPuzzle *puzzle;
-@property (nonatomic) ClueExtractor *clueExtractor;
-@property (nonatomic) NSMutableArray<Clue *> *clues;
-
-@property (nonatomic) NSArray *acrossClueImages;
-@property (nonatomic) NSArray *downClueImages;
 
 @end
 
 @implementation ProcessedCluesTableViewController
 
-- (ProcessedCluesTableViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle
-                                     acrossClueImages:(NSArray *)acrossClueImages
-                                       downClueImages:(NSArray *)downClueImages {
+- (ProcessedCluesTableViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle {
     self = [super init];
     if (self) {
         _puzzle = puzzle;
-        _clueExtractor = [[ClueExtractor alloc] init];
-        _acrossClueImages = acrossClueImages;
-        _downClueImages = downClueImages;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        [self processImagesForClues];
     }
     return self;
-}
-
-- (void)processImagesForClues {
-    /*
-     for (NSString *imagePath in _acrossClueImages) {
-     
-     }
-     */
-    [self.clues addObjectsFromArray:[self.clueExtractor processClues:nil]];
-    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -74,7 +53,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.clues count];
+    return [self.puzzle.clues count];
 }
 
 
@@ -88,14 +67,12 @@
     } else {
         sectionString = @"Down";
     }
-    NSString *reusableIdentifier = [NSString stringWithFormat:@"%@-%ld", sectionString, (long)row];
-    ProcessedClueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableIdentifier
-                                                                       forIndexPath:indexPath];
-    if (!cell) {
-        // Ideally we should seperate Across and Down
-        Clue *clue = [self.clues objectAtIndex:row];
-        cell = [[ProcessedClueTableViewCell alloc] initWithClue:clue];
-    }
+//    NSString *reusableIdentifier = [NSString stringWithFormat:@"%@-%ld", sectionString, (long)row];
+//    ProcessedClueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableIdentifier
+//                                                                       forIndexPath:indexPath];
+    Clue *clue = [self.puzzle.clues objectAtIndex:row];
+    ProcessedClueTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProcessedClueTableViewCell" owner:nil options:nil]lastObject];
+    cell.clue = clue;
     return cell;
 }
 @end

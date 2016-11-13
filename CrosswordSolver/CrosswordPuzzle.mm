@@ -14,7 +14,6 @@
 @interface CrosswordPuzzle()
 
 @property (nonatomic, assign) int **array;
-@property (nonatomic) NSMutableSet<Clue *> *clues;
 
 @end
 
@@ -28,7 +27,7 @@
         _array = new int*[rows];
         for(int i = 0; i < rows; ++i)
             _array[i] = new int[columns];
-        _clues = [NSMutableSet set];
+        _clues = [NSMutableArray array];
     }
     return self;
 }
@@ -62,8 +61,7 @@
 
 - (NSArray<Clue *> *)getClues:(ClueDirection)clueDirection {
     NSMutableArray<Clue *> *cluesInDirection = [NSMutableArray array];
-    NSArray<Clue *> *clues = [self.clues allObjects];
-    for (Clue *clue in clues) {
+    for (Clue *clue in self.clues) {
         if (clue.clueDirection == clueDirection) {
             [cluesInDirection addObject:clue];
         }

@@ -15,8 +15,6 @@
 // Get user input to fix clues.
 // And proceed to calculate the answer.
 
-- (ProcessedCluesTableViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle
-                                     acrossClueImages:(NSArray *)acrossClueImages
-                                       downClueImages:(NSArray *)downClueImages;
+- (ProcessedCluesTableViewController *)initWithPuzzle:(CrosswordPuzzle *)puzzle;
 
 @end

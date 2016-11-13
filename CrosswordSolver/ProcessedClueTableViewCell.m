@@ -10,7 +10,6 @@
 
 @interface ProcessedClueTableViewCell ()
 
-@property (nonatomic) Clue *clue;
 @property (nonatomic) NSMutableArray *pickerSource;
 @property (nonatomic) UIPickerView *clueIndexPickerView;
 
@@ -18,10 +17,9 @@
 
 @implementation ProcessedClueTableViewCell
 
-- (id)initWithClue:(Clue *)processedClue {
+- (id)init {
     self = [super init];
     if (self) {
-        _clue = processedClue;
         _pickerSource = [NSMutableArray array];
         // TODO: Change 50 to max clues.
         for (int i = 1; i <= 50; i++) {
@@ -31,6 +29,8 @@
         _clueIndexPickerView.delegate = self;
         _clueIndexPickerView.dataSource = self;
         _clueIndexPickerView.showsSelectionIndicator = YES;
+
+        _clueStringTextField.delegate = self;
     }
     return self;
 }
@@ -38,14 +38,16 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.clueStringTextField.delegate = self;
+}
 
+- (void)setClue:(Clue *)processedClue {
+    _clue = processedClue;
     // Set the picker to the clue index.
-    [self.clueIndexTextField setText:[NSString stringWithFormat:@"%ld", (long)self.clue.clueIndex]];
+    [self.clueIndexTextField setText:[NSString stringWithFormat:@"%ld", (long)_clue.clueIndex]];
     [self.clueIndexTextField setInputView:self.clueIndexPickerView];
-
+    
     // Set the clue string in the text field.
-    [self.clueStringTextField setText:self.clue.clueString];
+    [self.clueStringTextField setText:_clue.clueString];
 }
 
 #pragma mark UITextFieldDelegate callbacks

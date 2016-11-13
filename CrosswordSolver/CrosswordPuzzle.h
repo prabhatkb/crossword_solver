@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign, readonly) int rows;
 @property (nonatomic, assign, readonly) int columns;
+@property (nonatomic) NSMutableArray<Clue *> *clues;
 
 - (CrosswordPuzzle *)initWithRows:(int)rows columns:(int)columns;
 

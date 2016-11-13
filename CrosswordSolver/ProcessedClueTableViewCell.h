@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *clueIndexTextField;
 
 // Takes a clue and sets the table view cell
-- (id)initWithClue:(Clue *)processedClue;
+@property (nonatomic) Clue *clue;
 
 @end
